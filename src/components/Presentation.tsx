@@ -36,9 +36,9 @@ export function Presentation() {
       <div
         className={`flex justify-center items-center w-full ${preahvihear.className} text-white pt-20`}
       >
-        <div className="flex items-center justify-center w-8/12 md:w-10/12 md:flex-col">
+        <div className="flex items-center justify-center w-8/12 md:w-11/12 md:flex-col">
           <div
-            className="w-2/3 h-56 flex justify-center items-center md:w-52"
+            className="w-2/3 max-w-xs h-56 flex justify-center items-center md:w-52"
             style={{
               background:
                 "radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)",
@@ -136,21 +136,21 @@ export function Presentation() {
           tout en contribuant aux objectifs de l'entreprise.
         </p>
       </div>
-      <div className="mt-20 w-full flex flex-col items-center">
+      <div
+        className="mt-20 w-full flex flex-col items-center justify-center"
+        style={{
+          backgroundImage: `url(${gradient.src})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "35%",
+        }}
+      >
         <div className="w-8/12 md:w-10/12">
-          <h2 className="text-2xl text-white">
+          <h2 className="text-2xl text-white pb-2">
             Experience professionnelles & Formations
           </h2>
         </div>
-        <div
-          className="flex flex-row flex-wrap w-full justify-center gap-5 mt-5"
-          style={{
-            backgroundImage: `url(${gradient})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
+        <div className="flex flex-row flex-wrap justify-center gap-5 max-w-7xl">
           <Cards />
           <Cards />
           <Cards />
