@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Navbar } from "@/components/Navbar";
 import { Presentation } from "@/components/Presentation";
+import Cards from "@/components/Cards";
 export default function Home() {
   return (
     <>

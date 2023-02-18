@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Me from "../../public/me-emoji.png";
+import gradient from "../../public/Gradient.png";
 import { Preahvihear } from "@next/font/google";
 import { useEffect, useState } from "react";
+import Cards from "./Cards";
 const preahvihear = Preahvihear({
   weight: ["400"],
   style: ["normal"],
@@ -30,20 +32,20 @@ function MachineAEcrire({ text }: { text: string }) {
 }
 export function Presentation() {
   return (
-    <div className="">
+    <div className={`${preahvihear.className}`}>
       <div
         className={`flex justify-center items-center w-full ${preahvihear.className} text-white pt-20`}
       >
-        <div className="flex items-center justify-center w-8/12">
+        <div className="flex items-center justify-center w-8/12 md:w-10/12 md:flex-col">
           <div
-            className="w-auto"
+            className="w-2/3 h-56 flex justify-center items-center md:w-52"
             style={{
               background:
                 "radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)",
             }}
           >
             <Image
-              width={0}
+              width={170}
               src={Me}
               alt=""
               style={{
@@ -52,7 +54,7 @@ export function Presentation() {
               }}
             />
           </div>
-          <div className="flex justify-center items-start flex-col gap-5">
+          <div className="flex justify-center items-start flex-col gap-5 md:text-center md:items-center md:mt-2">
             <div className="flex items-start gap-1">
               <svg
                 width="79"
@@ -60,7 +62,7 @@ export function Presentation() {
                 viewBox="0 0 79 48"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="mt-3"
+                className="mt-3 md:hidden"
               >
                 <path
                   fillRule="evenodd"
@@ -75,14 +77,14 @@ export function Presentation() {
                   fill="white"
                 />
               </svg>
-              <p>
+              <p className="md:text-center">
                 Hello ! Je suis{" "}
                 <strong className="font-bold text-text-purple">
                   Othmane Ait Salah
                 </strong>
               </p>
             </div>
-            <div className="pl-10">
+            <div className="pl-10 md:pl-0 md:w-10/12">
               <div>
                 <p className="text-sm">Un développeur qui</p>
               </div>
@@ -108,13 +110,13 @@ export function Presentation() {
         </div>
       </div>
       <div
-        className={`flex flex-col justify-center items-center w-full text-white pt-20 ${preahvihear.className} md:w-4/12`}
+        className={`flex flex-col justify-center items-center w-full text-white pt-20 ${preahvihear.className}`}
       >
-        <div className="w-8/12 pb-5">
-          <h1 className="text-2xl pb-1">
+        <div className="w-8/12 pb-5 md:w-10/12 md:text-center">
+          <h1 className="text-2xl pb-1 md:pb-3">
             <MachineAEcrire text="Concepteur développeur d'application" />
           </h1>
-          <p className="flex flex-row gap-2">
+          <p className="flex flex-row gap-2 md:flex-col md:gap-1 md:items-center">
             Actuellement, je suis développeur web chez{" "}
             <span className="text-ouivalo flex flex-row gap-1">
               {" "}
@@ -127,12 +129,33 @@ export function Presentation() {
             </span>
           </p>
         </div>
-        <p className="w-8/12 md:4/12 text-sm">
+        <p className="w-8/12 md:w-10/12 text-sm">
           En tant qu'alternant développeur, je suis constamment en train
           d'apprendre et de me perfectionner dans mon domaine. Mon objectif est
           de produire un code de qualité qui répond aux besoins des utilisateurs
           tout en contribuant aux objectifs de l'entreprise.
         </p>
+      </div>
+      <div className="mt-20 w-full flex flex-col items-center">
+        <div className="w-8/12 md:w-10/12">
+          <h2 className="text-2xl text-white">
+            Experience professionnelles & Formations
+          </h2>
+        </div>
+        <div
+          className="flex flex-row flex-wrap w-full justify-center gap-5 mt-5"
+          style={{
+            backgroundImage: `url(${gradient})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <Cards />
+          <Cards />
+          <Cards />
+          <Cards />
+        </div>
       </div>
     </div>
   );

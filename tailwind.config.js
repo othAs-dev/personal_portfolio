@@ -16,7 +16,9 @@ module.exports = {
       'white': '#FFF',
       'low-purple': '#312147',
       'text-purple': "#7127BA",
-      'ouivalo': "#2fba88"
+      'ouivalo': "#2fba88",
+      'border': "#693B93",
+      "color-btn": "#2C1250"
     },
     screens: {
       '2xl': { 'max': '1535px' },
@@ -36,4 +38,8 @@ module.exports = {
     }
   },
   plugins: [],
+    corePlugins: {
+    preflight: true // <== disable this!
+  },
+
 }
