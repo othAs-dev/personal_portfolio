@@ -25,9 +25,14 @@ export function Navbar() {
           <a href="" className="hover:bg-low-purple p-3 rounded-xl">
             Contactez-moi
           </a>
-          <div className="flex items-center justify-between text-xl  gap-5 lg:justify-around gap-3">
-            <i className="fa-brands fa-linkedin text-white cursor-pointer hover:text-2xl"></i>
-            <i className="fa-brands fa-github text-white cursor-pointer hover:text-2xl"></i>
+          <div className="flex items-center justify-between text-xl  gap-5 lg:justify-around lg:gap-3">
+            <a href="https://www.linkedin.com/in/othmane-ait-salah-36736423a/">
+              {" "}
+              <i className="fa-brands fa-linkedin text-white cursor-pointer hover:text-2xl"></i>
+            </a>
+            <a href="https://github.com/othAs-dev">
+              <i className="fa-brands fa-github text-white cursor-pointer hover:text-2xl"></i>
+            </a>
           </div>
         </div>
       </nav>

@@ -1,14 +1,19 @@
 import Image from "next/image";
 import Me from "../../public/me-emoji.png";
 import gradient from "../../public/Gradient.png";
+import Skills from "../../public/Skills.png";
 import { Preahvihear } from "@next/font/google";
 import { useEffect, useState } from "react";
+import { app } from "../../firebase/firebaseConfig";
 import Cards from "./Cards";
 const preahvihear = Preahvihear({
   weight: ["400"],
   style: ["normal"],
   subsets: ["latin"],
 });
+
+console.log(app.options);
+
 function MachineAEcrire({ text }: { text: string }) {
   const [textePartiel, setTextePartiel] = useState("");
 
@@ -142,7 +147,7 @@ export function Presentation() {
           backgroundImage: `url(${gradient.src})`,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "35%",
+          backgroundSize: "20%",
         }}
       >
         <div className="w-8/12 md:w-10/12">
@@ -155,6 +160,19 @@ export function Presentation() {
           <Cards />
           <Cards />
           <Cards />
+        </div>
+      </div>
+      <div className="flex justify-center items-center flex-col mt-20 w-full gap-10">
+        <div className="w-8/12 md:10/12">
+          <h2 className="text-white text-xl text-center md:text-md">
+            Technos sur lesquels j'ai travaillé dans des projets en{" "}
+            <span className="text-text-purple">entreprise </span>
+            ou bien dans des projets{" "}
+            <span className="text-text-purple">scolaire</span>.
+          </h2>
+        </div>
+        <div className="w-8/12 md:w-10/12 flex justify-center items-center">
+          <Image src={Skills} alt="technos" width={725} />
         </div>
       </div>
     </div>
