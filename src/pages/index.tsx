@@ -2,7 +2,13 @@ import Head from "next/head";
 import { Navbar } from "@/components/Navbar";
 import { Presentation } from "@/components/Presentation";
 import Cards from "@/components/Cards";
-export default function Home() {
+import { collection, getDocs, queryEqual } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
+import { GetServerSideProps } from "next";
+import { useState } from "react";
+export default function Home({ dataPresentation, dataCards }) {
+  const presentation = dataPresentation[0];
+
   return (
     <>
       <Head>
@@ -17,8 +23,26 @@ export default function Home() {
       </Head>
       <Navbar />
       <main>
-        <Presentation />
+        <Presentation
+          presentation={presentation.objective}
+          name={presentation.name}
+          company={presentation.company}
+          job={presentation.job}
+          description={presentation.description}
+          dataCards={dataCards}
+        />
       </main>
     </>
   );
 }
+export const getServerSideProps: GetServerSideProps = async () => {
+  const querySnapshotPresentation = await getDocs(
+    collection(db, "presentation")
+  );
+  const dataPresentation = querySnapshotPresentation.docs.map((doc) =>
+    doc.data()
+  );
+  const querySnapshotCards = await getDocs(collection(db, "cards"));
+  const dataCards = querySnapshotCards.docs.map((doc) => doc.data());
+  return { props: { dataPresentation, dataCards } };
+};

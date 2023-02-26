@@ -4,16 +4,19 @@ import gradient from "../../public/Gradient.png";
 import Skills from "../../public/Skills.png";
 import { Preahvihear } from "@next/font/google";
 import { useEffect, useState } from "react";
-import { app } from "../../firebase/firebaseConfig";
 import Cards from "./Cards";
 const preahvihear = Preahvihear({
   weight: ["400"],
   style: ["normal"],
   subsets: ["latin"],
 });
-
-console.log(app.options);
-
+interface Props {
+  presentation: string;
+  name: string;
+  company: string;
+  job: string;
+  description?: string[];
+}
 function MachineAEcrire({ text }: { text: string }) {
   const [textePartiel, setTextePartiel] = useState("");
 
@@ -35,7 +38,16 @@ function MachineAEcrire({ text }: { text: string }) {
 
   return <div>{textePartiel + "|"}</div>;
 }
-export function Presentation() {
+export const Presentation: React.FC<Props> = ({
+  presentation,
+  name,
+  company,
+  job,
+  description,
+  dataCards,
+}) => {
+  const dataCardsReverse = dataCards.reverse();
+
   return (
     <div className={`${preahvihear.className}`}>
       <div
@@ -84,32 +96,30 @@ export function Presentation() {
               </svg>
               <p className="md:text-center">
                 Hello ! Je suis{" "}
-                <strong className="font-bold text-text-purple">
-                  Othmane Ait Salah
-                </strong>
+                <strong className="font-bold text-text-purple">{name}</strong>
               </p>
             </div>
             <div className="pl-10 md:pl-0 md:w-10/12">
-              <div>
-                <p className="text-sm">Un développeur qui</p>
-              </div>
-              <div>
-                <p className="text-lg">
-                  Accorde autant d'importance au design qu'à la qualité du code.
-                  Parce qu'un code impeccable est la toile de fond d'un design
-                  <span className="text-text-purple">
-                    {" "}
-                    &lt; saisissant &gt;{" "}
-                  </span>
-                  ...
-                </p>
-              </div>
-              <div>
-                <p className="text-sm">
-                  et que les deux sont essentiels pour créer des sites web
-                  remarquables.
-                </p>
-              </div>
+              {description.map((item, index) => (
+                <div key={index}>
+                  {index === 0 && <p className="text-sm">{item}</p>}
+                  {index === 1 && (
+                    <p className="text-lg">
+                      {item}
+                      <span className="text-text-purple">
+                        &lt; saisissant &gt;{" "}
+                      </span>
+                      ...
+                    </p>
+                  )}
+                  {index === 2 && (
+                    <p className="text-sm">
+                      et que les deux sont essentiels pour créer des sites web
+                      remarquables.
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -119,7 +129,7 @@ export function Presentation() {
       >
         <div className="w-8/12 pb-5 md:w-10/12 md:text-center">
           <h1 className="text-2xl pb-1 md:pb-3">
-            <MachineAEcrire text="Concepteur développeur d'application" />
+            <MachineAEcrire text={job} />
           </h1>
           <p className="flex flex-row gap-2 md:flex-col md:gap-1 md:items-center">
             Actuellement, je suis développeur web chez{" "}
@@ -130,16 +140,11 @@ export function Presentation() {
                 alt="icone"
                 className="h-6 w-6"
               />
-              <a href="https://ouivalo.fr">Ouivalo</a>
+              <a href="https://ouivalo.fr">{company}</a>
             </span>
           </p>
         </div>
-        <p className="w-8/12 md:w-10/12 text-sm">
-          En tant qu'alternant développeur, je suis constamment en train
-          d'apprendre et de me perfectionner dans mon domaine. Mon objectif est
-          de produire un code de qualité qui répond aux besoins des utilisateurs
-          tout en contribuant aux objectifs de l'entreprise.
-        </p>
+        <p className="w-8/12 md:w-10/12 text-sm">{presentation}</p>
       </div>
       <div
         className="mt-20 w-full flex flex-col items-center justify-center"
@@ -156,10 +161,9 @@ export function Presentation() {
           </h2>
         </div>
         <div className="flex flex-row flex-wrap justify-center gap-5 max-w-7xl">
-          <Cards />
-          <Cards />
-          <Cards />
-          <Cards />
+          {Object.entries(dataCardsReverse[0]).map(([key, value]) => (
+            <Cards key={key} card={value} />
+          ))}
         </div>
       </div>
       <div className="flex justify-center items-center flex-col mt-20 w-full gap-10">
@@ -177,4 +181,4 @@ export function Presentation() {
       </div>
     </div>
   );
-}
+};

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import img from "../../public/ouivaloLogo.png";
-export default function Cards() {
+export default function Cards({ card }) {
   return (
     <div
       style={{
@@ -11,16 +11,19 @@ export default function Cards() {
     >
       <div className="text-white flex flex-row gap-5">
         <div className="flex items-center">
-          <Image src={img} alt="" width={75} />
+          <img src={`${card[4]}`} alt="" width={75} height={75} />
         </div>
-        <div className="flex flex-col w-full  gap-2">
-          <h3 className="text-md font-bold">Développeur Full-stack</h3>
-          <p>
-            développeur Full-stack xxxxxxxxxx développeur Full-stack xxxxxxxxxx
-            développeur Full-stack xxxxxxxxxx{" "}
-          </p>
+        <div className="flex flex-col justify-center w-full gap-2">
+          <h3 className="text-md font-bold">{card[0]}</h3>
+          <p>{card[1]}</p>
+          <p className="text-sm">Technos : {card[2]}</p>
           <div className="flex justify-start">
-            <button className="bg-color-btn border border-border rounded-lg py-1 w-40">
+            <button
+              className="bg-color-btn border border-border rounded-lg py-1 w-40"
+              onClick={() => {
+                window.location.href = `${card[3]}`;
+              }}
+            >
               En savoir plus
             </button>
           </div>
