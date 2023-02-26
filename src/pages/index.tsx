@@ -1,13 +1,32 @@
 import Head from "next/head";
 import { Navbar } from "@/components/Navbar";
 import { Presentation } from "@/components/Presentation";
-import Cards from "@/components/Cards";
 import { collection, getDocs, queryEqual } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { GetServerSideProps } from "next";
-import { useState } from "react";
-export default function Home({ dataPresentation, dataCards }) {
-  const presentation = dataPresentation[0];
+import Form from "@/components/Form";
+
+interface DataPresentation {
+  company: string;
+  description: string[];
+  job: string;
+  name: string;
+  objective: string;
+}
+interface CardData {
+  Oclock: string[];
+  Simplon: string[];
+  ouivalo: string[];
+  unitix: string[];
+}
+export default function Home({
+  formattedDataPresentation,
+  formattedDataCards,
+}: {
+  formattedDataPresentation: DataPresentation;
+  formattedDataCards: CardData;
+}) {
+  console.log(formattedDataCards);
 
   return (
     <>
@@ -24,13 +43,14 @@ export default function Home({ dataPresentation, dataCards }) {
       <Navbar />
       <main>
         <Presentation
-          presentation={presentation.objective}
-          name={presentation.name}
-          company={presentation.company}
-          job={presentation.job}
-          description={presentation.description}
-          dataCards={dataCards}
+          presentation={formattedDataPresentation.objective}
+          name={formattedDataPresentation.name}
+          company={formattedDataPresentation.company}
+          job={formattedDataPresentation.job}
+          description={formattedDataPresentation.description}
+          dataCards={formattedDataCards}
         />
+        <Form />
       </main>
     </>
   );
@@ -44,5 +64,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   );
   const querySnapshotCards = await getDocs(collection(db, "cards"));
   const dataCards = querySnapshotCards.docs.map((doc) => doc.data());
-  return { props: { dataPresentation, dataCards } };
+  const formattedDataPresentation = dataPresentation[0];
+  const formattedDataCards = dataCards[0];
+  return { props: { formattedDataPresentation, formattedDataCards } };
 };

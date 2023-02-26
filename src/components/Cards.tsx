@@ -1,6 +1,7 @@
-import Image from "next/image";
-import img from "../../public/ouivaloLogo.png";
-export default function Cards({ card }) {
+interface CardProps {
+  card: string[];
+}
+export default function Cards({ card }: { card: CardProps }) {
   return (
     <div
       style={{

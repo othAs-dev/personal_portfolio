@@ -15,7 +15,8 @@ interface Props {
   name: string;
   company: string;
   job: string;
-  description?: string[];
+  description: string[];
+  dataCards: string[];
 }
 function MachineAEcrire({ text }: { text: string }) {
   const [textePartiel, setTextePartiel] = useState("");
@@ -46,8 +47,6 @@ export const Presentation: React.FC<Props> = ({
   description,
   dataCards,
 }) => {
-  const dataCardsReverse = dataCards.reverse();
-
   return (
     <div className={`${preahvihear.className}`}>
       <div
@@ -161,7 +160,7 @@ export const Presentation: React.FC<Props> = ({
           </h2>
         </div>
         <div className="flex flex-row flex-wrap justify-center gap-5 max-w-7xl">
-          {Object.entries(dataCardsReverse[0]).map(([key, value]) => (
+          {Object.entries(dataCards).map(([key, value]) => (
             <Cards key={key} card={value} />
           ))}
         </div>
