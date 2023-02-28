@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { Navbar } from "@/components/Navbar";
 import { Presentation } from "@/components/Presentation";
-import { collection, getDocs, queryEqual } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { GetServerSideProps } from "next";
 import Form from "@/components/Form";
+import { Map } from "@/components/Map";
+import { Footer } from "@/components/Footer";
 
 interface DataPresentation {
   company: string;
@@ -26,8 +28,6 @@ export default function Home({
   formattedDataPresentation: DataPresentation;
   formattedDataCards: CardData;
 }) {
-  console.log(formattedDataCards);
-
   return (
     <>
       <Head>
@@ -51,7 +51,11 @@ export default function Home({
           dataCards={formattedDataCards}
         />
         <Form />
+        <div>
+          <Map />
+        </div>
       </main>
+      <Footer />
     </>
   );
 }

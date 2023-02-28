@@ -15,6 +15,7 @@ module.exports = {
       'purple': '#1A0B2E',
       'white': '#FFF',
       'low-purple': '#312147',
+      'deep-purple': '#11071F',
       'text-purple': "#7127BA",
       'ouivalo': "#2fba88",
       'border': "#693B93",

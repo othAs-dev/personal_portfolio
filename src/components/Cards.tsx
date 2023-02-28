@@ -8,10 +8,10 @@ export default function Cards({ card }: { card: CardProps }) {
         background:
           "rgb(19,4,40) linear-gradient(180deg, rgba(19,4,40,1) 0%, rgba(68,29,124,1) 93%);",
       }}
-      className="w-4/12 max-w-3xl rounded-lg flex justify-start pl-5 items-center px-1 py-2 border border-t-border md:w-10/12"
+      className="w-4/12 max-w-3xl rounded-lg flex justify-start pl-5 items-center px-1 py-2 border border-t-border md:w-10/12 lg:pl-2"
     >
-      <div className="text-white flex flex-row gap-5">
-        <div className="flex items-center">
+      <div className="text-white flex flex-row gap-5 lg:flex-col">
+        <div className="flex items-center lg:justify-center">
           <img src={`${card[4]}`} alt="" width={75} height={75} />
         </div>
         <div className="flex flex-col justify-center w-full gap-2">
