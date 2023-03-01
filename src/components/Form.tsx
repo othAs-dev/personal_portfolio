@@ -1,39 +1,42 @@
 import { useState } from "react";
-import { useFormik } from "formik";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase/firebaseConfig";
-import { Map } from "./Map";
-export default function Form() {
+import { collection, doc, setDoc } from "firebase/firestore";
+
+export default function Form({ db }: any) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const formik = useFormik({
-    initialValues: {
-      firstname: "",
-      lastname: "",
-      email: "",
-      message: "",
-    },
-    onSubmit: (values) => {
-      addingData(values);
-    },
-  });
-  const addingData = async (values: any) => {
-    //alert(values.firstname + values.lastname);
-    const collectionRef = collection(db, "ytb");
-    await addDoc(collectionRef, {
-      firstname: values.firstname,
-      lastname: values.lastname,
-      email: values.email,
-      message: values.message,
-    })
-      .then(() => {
-        alert("xxxx");
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+
+  const data = {
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    message: message,
+  };
+
+  const addDoc = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    try {
+      // Validate the form data before writing to the database
+      if (!firstname || !lastname || !email || !message) {
+        throw new Error("Please fill out all fields");
+      }
+
+      // Generate a unique document ID using doc()
+      const newDocRef = doc(collection(db, "hC41wCQpNuCLf2Xplglb"), "contact");
+      await setDoc(newDocRef, data);
+      console.log("Data written to database:", data);
+
+      // Clear the form inputs after submitting
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("Error writing to database:", error);
+      // Display an error message to the user
+      alert("Failed to submit form. Please try again.");
+    }
   };
   return (
     <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
@@ -43,7 +46,7 @@ export default function Form() {
         </h2>
       </div>
       <div className="flex justify-center items-center w-5/12 md:w-10/12">
-        <form className="w-full " onSubmit={formik.handleSubmit}>
+        <form className="w-full " onSubmit={addDoc}>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
               <label
@@ -54,8 +57,8 @@ export default function Form() {
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                value={formik.values.firstname}
-                onChange={formik.handleChange}
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
                 type="text"
                 name="firstname"
               />
@@ -71,8 +74,8 @@ export default function Form() {
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                value={formik.values.lastname}
-                onChange={formik.handleChange}
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
                 type="text"
                 name="lastname"
               />
@@ -88,8 +91,8 @@ export default function Form() {
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                value={formik.values.email}
-                onChange={formik.handleChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
               />
@@ -105,8 +108,8 @@ export default function Form() {
               </label>
               <textarea
                 className="no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-                value={formik.values.message}
-                onChange={formik.handleChange}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 name="message"
               ></textarea>
             </div>

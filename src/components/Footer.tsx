@@ -10,11 +10,11 @@ export function Footer() {
   return (
     <div className="bg-purple">
       <div className="flex w-full justify-">
-        <div className="w-6/12 lg:w-4/12 block md:flex justify-center ">
+        <div className="w-6/12 lg:w-4/12 block md:flex justify-center md:hidden">
           <Image src={logo} alt="logo" width={100} />
         </div>
         <div
-          className={`flex justify-end items-center text-white ${inter.className} mr-6 w-10/12 max-w-xl lg:w-6/12`}
+          className={`flex justify-end items-center text-white ${inter.className} mr-6 w-10/12 max-w-xl lg:w-6/12 md:mt-8 md:mb-8 md:w-full md:justify-center`}
         >
           <div className="flex items-center text-xl gap-5 lg:justify-around lg:gap-3">
             <a href="https://www.linkedin.com/in/othmane-ait-salah-36736423a/">

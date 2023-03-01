@@ -37,7 +37,7 @@ function MachineAEcrire({ text }: { text: string }) {
     return () => clearInterval(intervalId);
   }, [text]);
 
-  return <div>{textePartiel + "|"}</div>;
+  return <div>{textePartiel}</div>;
 }
 export const Presentation: React.FC<Props> = ({
   presentation,

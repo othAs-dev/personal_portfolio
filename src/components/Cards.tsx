@@ -1,5 +1,5 @@
 interface CardProps {
-  card: string[];
+  card: any[];
 }
 export default function Cards({ card }: { card: CardProps }) {
   return (
