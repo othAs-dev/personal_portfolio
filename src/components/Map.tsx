@@ -16,7 +16,7 @@ export function Map() {
       container: mapContainer.current,
       style: "mapbox://styles/othmanedev/cleojrlut002e01ocfjybh7bg/draft",
       center: [5.3698, 43.2965], // center map on Chad
-      zoom: 4.8,
+      zoom: 1.3,
     });
     new mapboxgl.Marker({ color: "#1A0B2E" })
       .setLngLat([5.3698, 43.2965])

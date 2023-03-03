@@ -1,7 +1,7 @@
 interface CardProps {
-  card: any[];
+  card: [string, string, string, string, string];
 }
-export default function Cards({ card }: { card: CardProps }) {
+export default function Cards({ card }: CardProps) {
   return (
     <div
       style={{

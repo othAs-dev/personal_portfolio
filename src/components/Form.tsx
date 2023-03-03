@@ -1,52 +1,59 @@
 import { useState } from "react";
-import { collection, doc, setDoc } from "firebase/firestore";
-
-export default function Form({ db }: any) {
+import axios from "axios";
+import { Preahvihear } from "@next/font/google";
+const preahvihear = Preahvihear({
+  weight: ["400"],
+  style: ["normal"],
+  subsets: ["latin"],
+});
+interface Idata {
+  firstname: string;
+  lastname: string;
+  email: string;
+  message?: string;
+}
+export default function Form() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
-  const data = {
+  const [successMessage, setSuccessMessage] = useState("");
+  const data: Idata = {
     firstname: firstname,
     lastname: lastname,
     email: email,
     message: message,
   };
 
-  const addDoc = async (e: { preventDefault: () => void }) => {
+  const submitData = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
     try {
-      // Validate the form data before writing to the database
-      if (!firstname || !lastname || !email || !message) {
-        throw new Error("Please fill out all fields");
-      }
-
-      // Generate a unique document ID using doc()
-      const newDocRef = doc(collection(db, "hC41wCQpNuCLf2Xplglb"), "contact");
-      await setDoc(newDocRef, data);
-      console.log("Data written to database:", data);
-
-      // Clear the form inputs after submitting
-      setFirstname("");
-      setLastname("");
-      setEmail("");
-      setMessage("");
+      const res = await axios.post("/api/sendContact", data);
+      console.log(res.data);
+      setSuccessMessage(
+        "Votre message à bien été reçu, vous recevrez un mail de confirmation dans les plus brefs délais."
+      );
     } catch (error) {
-      console.error("Error writing to database:", error);
-      // Display an error message to the user
-      alert("Failed to submit form. Please try again.");
+      console.error(error);
     }
+    setFirstname("");
+    setLastname("");
+    setEmail("");
+    setMessage("");
   };
+
   return (
     <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
       <div className="w-8/12 md:w-10/12">
-        <h2 className="text-2xl text-white pb-2 lg:text-center">
+        <h2
+          className={`text-2xl text-white pb-2 lg:text-center ${preahvihear.className}`}
+        >
           Vous souhaitez prendre contacte c'est par ici !
         </h2>
       </div>
       <div className="flex justify-center items-center w-5/12 md:w-10/12">
-        <form className="w-full " onSubmit={addDoc}>
+        <form className="w-full " onSubmit={submitData}>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3">
               <label
@@ -61,6 +68,7 @@ export default function Form({ db }: any) {
                 onChange={(e) => setFirstname(e.target.value)}
                 type="text"
                 name="firstname"
+                required
               />
             </div>
           </div>
@@ -78,6 +86,7 @@ export default function Form({ db }: any) {
                 onChange={(e) => setLastname(e.target.value)}
                 type="text"
                 name="lastname"
+                required
               />
             </div>
           </div>
@@ -95,6 +104,7 @@ export default function Form({ db }: any) {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 name="email"
+                required
               />
             </div>
           </div>
@@ -111,10 +121,11 @@ export default function Form({ db }: any) {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 name="message"
+                required
               ></textarea>
             </div>
           </div>
-          <div className="md:flex md:items-center">
+          <div className="md:flex md:flex-col">
             <div className="md:w-1/3">
               <button
                 className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
@@ -124,7 +135,11 @@ export default function Form({ db }: any) {
                 Soumettre
               </button>
             </div>
-            <div className="md:w-2/3"></div>
+            <div className={`md:mt-5 ${preahvihear.className}`}>
+              {successMessage !== "" && (
+                <p className="text-white">{successMessage}</p>
+              )}
+            </div>
           </div>
         </form>
       </div>

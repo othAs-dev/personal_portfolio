@@ -16,7 +16,7 @@ interface Props {
   company: string;
   job: string;
   description: string[];
-  dataCards: string[];
+  dataCards: [string, string, string, string, string][];
 }
 function MachineAEcrire({ text }: { text: string }) {
   const [textePartiel, setTextePartiel] = useState("");
@@ -143,7 +143,9 @@ export const Presentation: React.FC<Props> = ({
             </span>
           </p>
         </div>
-        <p className="w-8/12 md:w-10/12 text-sm">{presentation}</p>
+        <p className="w-8/12 md:w-10/12 md:text-center text-sm">
+          {presentation}
+        </p>
       </div>
       <div
         className="mt-20 w-full flex flex-col items-center justify-center"
@@ -155,7 +157,7 @@ export const Presentation: React.FC<Props> = ({
         }}
       >
         <div className="w-8/12 md:w-10/12">
-          <h2 className="text-2xl text-white pb-2">
+          <h2 className="text-2xl text-white pb-2 md: text-center">
             Experience professionnelles & Formations
           </h2>
         </div>

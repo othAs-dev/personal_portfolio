@@ -22,7 +22,7 @@ export function Navbar() {
           <a href="" className="hover:bg-low-purple p-3 rounded-xl">
             Projets
           </a>
-          <a href="" className="hover:bg-low-purple p-3 rounded-xl">
+          <a href="#form" className="hover:bg-low-purple p-3 rounded-xl">
             Contactez-moi
           </a>
           <div className="flex items-center justify-between text-xl  gap-5 lg:justify-around lg:gap-3">

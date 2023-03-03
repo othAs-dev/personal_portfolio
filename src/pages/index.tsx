@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Navbar } from "@/components/Navbar";
 import { Presentation } from "@/components/Presentation";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { GetServerSideProps } from "next";
 import Form from "@/components/Form";
@@ -15,12 +15,8 @@ interface DataPresentation {
   name: string;
   objective: string;
 }
-interface CardData {
-  Oclock: string[];
-  Simplon: string[];
-  ouivalo: string[];
-  unitix: string[];
-}
+interface CardData extends Array<[string, string, string, string, string]> {}
+
 export default function Home({
   formattedDataPresentation,
   formattedDataCards,
@@ -50,7 +46,7 @@ export default function Home({
           description={formattedDataPresentation.description}
           dataCards={formattedDataCards}
         />
-        <Form db={db} />
+        <Form />
         <div>
           <Map />
         </div>
@@ -59,7 +55,7 @@ export default function Home({
     </>
   );
 }
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetServerSideProps = async () => {
   const querySnapshotPresentation = await getDocs(
     collection(db, "presentation")
   );
