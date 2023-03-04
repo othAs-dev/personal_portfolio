@@ -50,9 +50,9 @@ export const Presentation: React.FC<Props> = ({
   resumeFile,
 }) => {
   return (
-    <div className={`${preahvihear.className}`}>
+    <div className={``}>
       <div
-        className={`flex justify-center items-center w-full ${preahvihear.className} text-white pt-20`}
+        className={`flex justify-center items-center w-full  text-white pt-20`}
       >
         <div className="flex items-center justify-center w-8/12 md:w-11/12 md:flex-col">
           <div
@@ -95,7 +95,7 @@ export const Presentation: React.FC<Props> = ({
                   fill="white"
                 />
               </svg>
-              <p className="md:text-center">
+              <p className="md:text-center text-lg">
                 Hello ! Je suis{" "}
                 <strong className="font-bold text-text-purple">{name}</strong>
               </p>
@@ -105,7 +105,7 @@ export const Presentation: React.FC<Props> = ({
                 <div key={index}>
                   {index === 0 && <p className="text-sm">{item}</p>}
                   {index === 1 && (
-                    <p className="text-lg">
+                    <p className="text-xl">
                       {item}
                       <span className="text-text-purple">
                         &lt; saisissant &gt;{" "}
@@ -136,14 +136,14 @@ export const Presentation: React.FC<Props> = ({
         </div>
       </div>
       <div
-        className={`flex flex-col justify-center items-center w-full text-white pt-20 ${preahvihear.className}`}
+        className={`flex flex-col justify-center items-center w-full text-white pt-20 `}
       >
-        <div className="w-8/12 pb-5 md:w-10/12 md:text-center">
-          <h1 className="text-2xl pb-1 md:pb-3">
+        <div className="w-8/12 pb-5 md:w-10/12 md:text-center ">
+          <h1 className="text-3xl pb-1 md:pb-3">
             <MachineAEcrire text={job} />
           </h1>
-          <p className="flex flex-row gap-2 md:flex-col md:gap-1 md:items-center">
-            Actuellement, je suis en concepteur développeur en alternance chez{" "}
+          <p className="flex flex-row gap-2 md:flex-col md:gap-1 md:items-center text-lg">
+            Actuellement, je suis concepteur développeur en alternance chez{" "}
             <span className="text-ouivalo flex flex-row gap-1">
               {" "}
               <img
@@ -155,7 +155,7 @@ export const Presentation: React.FC<Props> = ({
             </span>
           </p>
         </div>
-        <p className="w-8/12 md:w-10/12 md:text-center text-sm">
+        <p className="w-8/12 md:w-10/12 md:text-center text-lg">
           {presentation}
         </p>
       </div>
@@ -169,7 +169,7 @@ export const Presentation: React.FC<Props> = ({
         }}
       >
         <div className="w-8/12 md:w-10/12">
-          <h2 className="text-2xl text-white mb-5 md: text-center">
+          <h2 className="text-3xl text-white mb-5 md: text-center">
             Experience professionnelles & Formations
           </h2>
         </div>
@@ -181,7 +181,7 @@ export const Presentation: React.FC<Props> = ({
       </div>
       <div className="flex justify-center items-center flex-col mt-20 w-full gap-10">
         <div className="w-8/12 md:10/12">
-          <h2 className="text-white text-xl text-center md:text-md">
+          <h2 className="text-white text-3xl text-center md:text-md">
             Technos sur lesquels j'ai travaillé dans des projets en{" "}
             <span className="text-text-purple">entreprise </span>
             ou bien dans des projets{" "}

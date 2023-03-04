@@ -27,8 +27,6 @@ export default function Home({
   formattedDataCards: CardData;
   fileUrl: string;
 }) {
-  console.log(fileUrl);
-
   return (
     <>
       <Head>
@@ -43,9 +41,6 @@ export default function Home({
       </Head>
       <Navbar />
       <main>
-        <a href={fileUrl} target="_blank" download>
-          Télécharger le fichier
-        </a>
         <Presentation
           presentation={formattedDataPresentation.objective}
           name={formattedDataPresentation.name}

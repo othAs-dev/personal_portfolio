@@ -15,9 +15,11 @@ export default function Cards({ card }: CardProps) {
           <img src={`${card[4]}`} alt="" width={75} height={75} />
         </div>
         <div className="flex flex-col justify-center w-full gap-2">
-          <h3 className="text-md font-bold">{card[0]}</h3>
+          <h3 className="text-lg font-bold">{card[0]}</h3>
           <p>{card[1]}</p>
-          <p className="text-sm">Technos : {card[2]}</p>
+          <p className="text-sm">
+            Technos : <strong>{card[2]}</strong>
+          </p>
           <div className="flex justify-start">
             <button
               className="bg-color-btn border border-border rounded-lg py-1 w-40"

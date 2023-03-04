@@ -25,19 +25,19 @@ export default async function handler(req, res) {
     await addDoc(dbInstance, data);
 
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
+      host: process.env.MAIL_HOST,
+      port: process.env.MAIL_PORT,
       secure: true,
       auth: {
-        user: "othmane.developer@gmail.com",
+        user: process.env.MAIL_USER,
         pass: process.env.MAIL_KEY,
       },
     });
 
     const mailData = {
-      from: "othmane.developer@gmail.com",
+      from: "Othmane Ait Salah ",
       to: data.email,
-      subject: `Merci pour votre message ${data.firstname} ${data.lastname}`,
+      subject: `Merci pour votre message ${data.firstname} ${data.lastname} 🚀`,
       html: `
         <body style="border-style: solid;
                       border-width: thin;
@@ -58,10 +58,10 @@ export default async function handler(req, res) {
               </tr>
             </table>
           </div>          
-          <h3 style="text-align: center">Merci pour votre message, ${data.firstname} !</h3>
+          <h3 style="text-align: center">Merci pour votre message ${data.firstname} ${data.lastname}!</h3>
           <p style="font-size: 16px;">J'ai bien reçu votre message et je vous répondrai dans les plus brefs délais.</p>
           <p style="text-decoration: underline; font-size: 16px;">Voici un récapitulatif de votre message :</p>
-          <p style="font-size: 16px;"><strong>${data.message}</strong></p>
+          <p style="font-size: 16px;padding-bottom: 15px"><strong>${data.message}</strong></p>
           <p style="text-align: center; font-size: 16px; font-weight: 500; border-top: thin solid #dadce0; padding-top: 15px">Cordialement, Othmane</p>
 
           <table width="100%" border="0" cellspacing="0" cellpadding="0">

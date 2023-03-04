@@ -1,11 +1,5 @@
 import Image from "next/image";
 import logo from "../../public/logo.png.png";
-import { Roboto } from "@next/font/google";
-const inter = Roboto({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-});
 export function Navbar() {
   return (
     <header className="bg-purple">
@@ -14,7 +8,7 @@ export function Navbar() {
           <Image src={logo} alt="logo" width={100} />
         </div>
         <div
-          className={`flex w-4/12 max-w-xl justify-between items-center text-white ${inter.className} lg:w-6/12 md:hidden`}
+          className={`flex w-4/12 max-w-xl justify-between items-center text-white  lg:w-6/12 md:hidden`}
         >
           <a href="#" className="bg-low-purple p-3 rounded-xl">
             Home

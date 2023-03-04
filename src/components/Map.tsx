@@ -1,12 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Preahvihear } from "@next/font/google";
-const preahvihear = Preahvihear({
-  weight: ["400"],
-  style: ["normal"],
-  subsets: ["latin"],
-});
 export function Map() {
   const mapContainer = useRef<any>(null);
   useEffect(() => {
@@ -29,9 +23,7 @@ export function Map() {
     <div className="flex justify-center pb-5">
       <div className="w-8/12 md:w-10/12">
         <div>
-          <h2 className={`text-white text-2xl pb-2 ${preahvihear.className}`}>
-            Où me trouver ?
-          </h2>
+          <h2 className={`text-white text-3xl pb-2`}>Où me trouver ?</h2>
         </div>
         <div className="rounded-xl">
           <div ref={mapContainer} className="w-full h-72 md:h-56" />

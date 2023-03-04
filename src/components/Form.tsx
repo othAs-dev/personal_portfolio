@@ -1,11 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { Preahvihear } from "@next/font/google";
-const preahvihear = Preahvihear({
-  weight: ["400"],
-  style: ["normal"],
-  subsets: ["latin"],
-});
 interface Idata {
   firstname: string;
   lastname: string;
@@ -46,9 +40,7 @@ export default function Form() {
   return (
     <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
       <div className="w-8/12 md:w-10/12">
-        <h2
-          className={`text-2xl text-white pb-2 text-center ${preahvihear.className}`}
-        >
+        <h2 className={`text-3xl text-white pb-2 text-center `}>
           Vous souhaitez prendre contacte c'est par ici !
         </h2>
       </div>
@@ -135,7 +127,7 @@ export default function Form() {
                 Soumettre
               </button>
             </div>
-            <div className={`mt-5 ${preahvihear.className}`}>
+            <div className={`mt-5`}>
               {successMessage !== "" && (
                 <p className="text-white">{successMessage}</p>
               )}
