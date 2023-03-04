@@ -4,7 +4,7 @@ import { Presentation } from "@/components/Presentation";
 import { collection, getDocs } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { db } from "../../firebase/firebaseConfig";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import Form from "@/components/Form";
 import { Map } from "@/components/Map";
 import { Footer } from "@/components/Footer";
@@ -59,7 +59,7 @@ export default function Home({
     </>
   );
 }
-export const getStaticProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const storage = getStorage();
   const querySnapshotPresentation = await getDocs(
     collection(db, "presentation")
