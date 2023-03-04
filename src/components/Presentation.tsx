@@ -2,14 +2,8 @@ import Image from "next/image";
 import Me from "../../public/me-emoji.png";
 import gradient from "../../public/Gradient.png";
 import Skills from "../../public/Skills.png";
-import { Preahvihear } from "@next/font/google";
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
-const preahvihear = Preahvihear({
-  weight: ["400"],
-  style: ["normal"],
-  subsets: ["latin"],
-});
 interface Props {
   presentation: string;
   name: string;
