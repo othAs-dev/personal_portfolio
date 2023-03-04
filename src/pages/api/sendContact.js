@@ -67,13 +67,13 @@ export default async function handler(req, res) {
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td align="center">
-              <a href="https://fr.linkedin.com/in/othmane-ait-salah-36736423a?original_referer=https%3A%2F%2Fwww.google.com%2F">
+              <a href="https://fr.linkedin.com/in/othmane-ait-salah-36736423a?original_referer=https%3A%2F%2Fwww.google.com%2F" style="text-decoration: none">
                 <img src="https://www.nicepng.com/png/detail/461-4616944_linkedin-logo-png-linked-in-icon-svg.png" alt="linkedin" style="width: 26px; height: 26px;" title="LinkedIn">
               </a>
-              <a href="tel:+33755384212" style="margin-left: 15px">
+              <a href="tel:+33755384212" style="margin-left: 15px; text-decoration: none">
                 <img src="https://www.citypng.com/public/uploads/small/11641393938nn6j480o9ylr0bzap6d5rasvhwihvkx5p2hdbc8h05kcmiug7vsb531ovbniakvh2omjn5cby7kl0yrmf2epfrftbqziptjstwey.png" alt="phone" style="width: 30px; height: 30px;" title="0755384212">
               </a>
-              <a href="https://github.com/othAs-dev" style="margin-left: 15px">
+              <a href="https://github.com/othAs-dev" style="margin-left: 15px; text-decoration: none">
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="phone" style="width: 30px; height: 30px;" title="GitHub">
               </a>
             </td>

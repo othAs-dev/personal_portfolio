@@ -30,7 +30,7 @@ export default function Home({
   return (
     <>
       <Head>
-        <title> {formattedDataPresentation.name} - Portfolio</title>
+        <title> Othmane Ait Salah - Portfolio</title>
         <meta
           name="description"
           content="Hello, bienvenue sur mon portfolio !"
