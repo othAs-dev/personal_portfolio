@@ -1,162 +1,75 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 680;
-exports.ids = [680];
+exports.id = "pages/api/sendContact";
+exports.ids = ["pages/api/sendContact"];
 exports.modules = {
 
-/***/ 5184:
+/***/ "nodemailer":
+/*!*****************************!*\
+  !*** external "nodemailer" ***!
+  \*****************************/
 /***/ ((module) => {
 
 module.exports = require("nodemailer");
 
 /***/ }),
 
-/***/ 3745:
+/***/ "firebase/app":
+/*!*******************************!*\
+  !*** external "firebase/app" ***!
+  \*******************************/
 /***/ ((module) => {
 
 module.exports = import("firebase/app");;
 
 /***/ }),
 
-/***/ 1492:
+/***/ "firebase/firestore":
+/*!*************************************!*\
+  !*** external "firebase/firestore" ***!
+  \*************************************/
 /***/ ((module) => {
 
 module.exports = import("firebase/firestore");;
 
 /***/ }),
 
-/***/ 7715:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ "firebase/storage":
+/*!***********************************!*\
+  !*** external "firebase/storage" ***!
+  \***********************************/
+/***/ ((module) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "db": () => (/* binding */ db)
-/* harmony export */ });
-/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3745);
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1492);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([firebase_app__WEBPACK_IMPORTED_MODULE_0__, firebase_firestore__WEBPACK_IMPORTED_MODULE_1__]);
-([firebase_app__WEBPACK_IMPORTED_MODULE_0__, firebase_firestore__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
-// Import the functions you need from the SDKs you need
-
-
-const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID,
-    measurementId: process.env.MEASUREMENT_ID
-};
-// Initialize Firebase
-const app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);
-const db = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)(app);
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+module.exports = import("firebase/storage");;
 
 /***/ }),
 
-/***/ 3249:
+/***/ "(api)/./firebase/firebaseConfig.ts":
+/*!************************************!*\
+  !*** ./firebase/firebaseConfig.ts ***!
+  \************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ handler)
-/* harmony export */ });
-/* harmony import */ var nodemailer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5184);
-/* harmony import */ var nodemailer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nodemailer__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1492);
-/* harmony import */ var _firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7715);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([firebase_firestore__WEBPACK_IMPORTED_MODULE_1__, _firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_2__]);
-([firebase_firestore__WEBPACK_IMPORTED_MODULE_1__, _firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);
- // utiliser import au lieu de require
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"db\": () => (/* binding */ db)\n/* harmony export */ });\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! firebase/app */ \"firebase/app\");\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ \"firebase/firestore\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([firebase_app__WEBPACK_IMPORTED_MODULE_0__, firebase_firestore__WEBPACK_IMPORTED_MODULE_1__]);\n([firebase_app__WEBPACK_IMPORTED_MODULE_0__, firebase_firestore__WEBPACK_IMPORTED_MODULE_1__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);\n// Import the functions you need from the SDKs you need\n\n\nconst firebaseConfig = {\n    apiKey: process.env.API_KEY,\n    authDomain: process.env.AUTH_DOMAIN,\n    projectId: process.env.PROJECT_ID,\n    storageBucket: process.env.STORAGE_BUCKET,\n    messagingSenderId: process.env.MESSAGING_SENDER_ID,\n    appId: process.env.APP_ID,\n    measurementId: process.env.MEASUREMENT_ID\n};\n// Initialize Firebase\nconst app = (0,firebase_app__WEBPACK_IMPORTED_MODULE_0__.initializeApp)(firebaseConfig);\nconst db = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.getFirestore)(app);\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9maXJlYmFzZS9maXJlYmFzZUNvbmZpZy50cy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQSx1REFBdUQ7QUFDRztBQUNHO0FBVzdELE1BQU1FLGlCQUFpQztJQUNyQ0MsUUFBUUMsUUFBUUMsR0FBRyxDQUFDQyxPQUFPO0lBQzNCQyxZQUFZSCxRQUFRQyxHQUFHLENBQUNHLFdBQVc7SUFDbkNDLFdBQVdMLFFBQVFDLEdBQUcsQ0FBQ0ssVUFBVTtJQUNqQ0MsZUFBZVAsUUFBUUMsR0FBRyxDQUFDTyxjQUFjO0lBQ3pDQyxtQkFBbUJULFFBQVFDLEdBQUcsQ0FBQ1MsbUJBQW1CO0lBQ2xEQyxPQUFPWCxRQUFRQyxHQUFHLENBQUNXLE1BQU07SUFDekJDLGVBQWViLFFBQVFDLEdBQUcsQ0FBQ2EsY0FBYztBQUMzQztBQUNBLHNCQUFzQjtBQUN0QixNQUFNQyxNQUFtQm5CLDJEQUFhQSxDQUFDRTtBQUNoQyxNQUFNa0IsS0FBZ0JuQixnRUFBWUEsQ0FBQ2tCLEtBQUsiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teS1wb3J0Zm9saW8vLi9maXJlYmFzZS9maXJlYmFzZUNvbmZpZy50cz9jMTJjIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIEltcG9ydCB0aGUgZnVuY3Rpb25zIHlvdSBuZWVkIGZyb20gdGhlIFNES3MgeW91IG5lZWRcbmltcG9ydCB7IEZpcmViYXNlQXBwLCBpbml0aWFsaXplQXBwIH0gZnJvbSBcImZpcmViYXNlL2FwcFwiO1xuaW1wb3J0IHsgRmlyZXN0b3JlLCBnZXRGaXJlc3RvcmUgfSBmcm9tIFwiZmlyZWJhc2UvZmlyZXN0b3JlXCI7XG5cbmludGVyZmFjZSBGaXJlYmFzZUNvbmZpZyB7XG4gIGFwaUtleT86IHN0cmluZztcbiAgYXV0aERvbWFpbj86IHN0cmluZztcbiAgcHJvamVjdElkPzogc3RyaW5nO1xuICBzdG9yYWdlQnVja2V0Pzogc3RyaW5nO1xuICBtZXNzYWdpbmdTZW5kZXJJZD86IHN0cmluZztcbiAgYXBwSWQ/OiBzdHJpbmc7XG4gIG1lYXN1cmVtZW50SWQ/OiBzdHJpbmc7XG59XG5jb25zdCBmaXJlYmFzZUNvbmZpZzogRmlyZWJhc2VDb25maWcgPSB7XG4gIGFwaUtleTogcHJvY2Vzcy5lbnYuQVBJX0tFWSxcbiAgYXV0aERvbWFpbjogcHJvY2Vzcy5lbnYuQVVUSF9ET01BSU4sXG4gIHByb2plY3RJZDogcHJvY2Vzcy5lbnYuUFJPSkVDVF9JRCxcbiAgc3RvcmFnZUJ1Y2tldDogcHJvY2Vzcy5lbnYuU1RPUkFHRV9CVUNLRVQsXG4gIG1lc3NhZ2luZ1NlbmRlcklkOiBwcm9jZXNzLmVudi5NRVNTQUdJTkdfU0VOREVSX0lELFxuICBhcHBJZDogcHJvY2Vzcy5lbnYuQVBQX0lELFxuICBtZWFzdXJlbWVudElkOiBwcm9jZXNzLmVudi5NRUFTVVJFTUVOVF9JRCxcbn07XG4vLyBJbml0aWFsaXplIEZpcmViYXNlXG5jb25zdCBhcHA6IEZpcmViYXNlQXBwID0gaW5pdGlhbGl6ZUFwcChmaXJlYmFzZUNvbmZpZyk7XG5leHBvcnQgY29uc3QgZGI6IEZpcmVzdG9yZSA9IGdldEZpcmVzdG9yZShhcHApO1xuIl0sIm5hbWVzIjpbImluaXRpYWxpemVBcHAiLCJnZXRGaXJlc3RvcmUiLCJmaXJlYmFzZUNvbmZpZyIsImFwaUtleSIsInByb2Nlc3MiLCJlbnYiLCJBUElfS0VZIiwiYXV0aERvbWFpbiIsIkFVVEhfRE9NQUlOIiwicHJvamVjdElkIiwiUFJPSkVDVF9JRCIsInN0b3JhZ2VCdWNrZXQiLCJTVE9SQUdFX0JVQ0tFVCIsIm1lc3NhZ2luZ1NlbmRlcklkIiwiTUVTU0FHSU5HX1NFTkRFUl9JRCIsImFwcElkIiwiQVBQX0lEIiwibWVhc3VyZW1lbnRJZCIsIk1FQVNVUkVNRU5UX0lEIiwiYXBwIiwiZGIiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./firebase/firebaseConfig.ts\n");
 
+/***/ }),
 
-async function handler(req, res) {
-    const { firstname , lastname , email , message  } = req.body;
-    const timestamp = firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.Timestamp.fromDate(new Date());
-    const data = {
-        firstname,
-        lastname,
-        email,
-        message,
-        sendedAt: timestamp
-    };
-    const dbInstance = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(_firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_2__.db, "contacts");
-    try {
-        await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(dbInstance, data);
-        const transporter = nodemailer__WEBPACK_IMPORTED_MODULE_0___default().createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-                user: "othmane.developer@gmail.com",
-                pass: process.env.MAIL_KEY
-            }
-        });
-        const mailData = {
-            from: "othmane.developer@gmail.com",
-            to: data.email,
-            subject: `Merci pour votre message ${data.firstname} ${data.lastname}`,
-            html: `
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                font-size: 16px;
-                color: #333;
-              }
-              h1 {
-                font-size: 24px;
-                margin-top: 40px;
-                margin-bottom: 20px;
-                text-align: center;
-              }
-              p {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                line-height: 1.5;
-              }
-              ul {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                padding-left: 20px;
-                list-style-type: square;
-              }
-            </style>
-          </head>
-          <body>
-            <h1>Merci pour votre message, ${data.firstname} ${data.lastname} !</h1>
-            <p>Nous avons bien reçu votre message et nous vous répondrons dans les plus brefs délais.</p>
-            <p>Voici un récapitulatif de votre message :</p>
-            <ul>
-              <li><strong>Nom :</strong> ${data.firstname} ${data.lastname}</li>
-              <li><strong>Email :</strong> ${data.email}</li>
-              <li><strong>Message :</strong> ${data.message}</li>
-            </ul>
-            <p>Encore merci pour votre message !</p>
-          </body>
-      `
-        };
-        transporter.sendMail(mailData, function(err, info) {
-            if (err) console.log(err);
-            else console.log(info);
-        });
-        res.status(200).json({
-            message: "Form submitted successfully!"
-        });
-    } catch (error) {
-        console.error("Error writing to database:", error);
-        res.status(500).json({
-            error: "Failed to submit form. Please try again."
-        });
-    }
-}
+/***/ "(api)/./src/pages/api/sendContact.js":
+/*!**************************************!*\
+  !*** ./src/pages/api/sendContact.js ***!
+  \**************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var nodemailer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! nodemailer */ \"nodemailer\");\n/* harmony import */ var nodemailer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(nodemailer__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var firebase_firestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/firestore */ \"firebase/firestore\");\n/* harmony import */ var firebase_storage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/storage */ \"firebase/storage\");\n/* harmony import */ var _firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../firebase/firebaseConfig */ \"(api)/./firebase/firebaseConfig.ts\");\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([firebase_firestore__WEBPACK_IMPORTED_MODULE_1__, firebase_storage__WEBPACK_IMPORTED_MODULE_2__, _firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_3__]);\n([firebase_firestore__WEBPACK_IMPORTED_MODULE_1__, firebase_storage__WEBPACK_IMPORTED_MODULE_2__, _firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__);\n // utiliser import au lieu de require\n\n\n\nconst dbInstance = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.collection)(_firebase_firebaseConfig__WEBPACK_IMPORTED_MODULE_3__.db, \"contacts\");\nconst timestamp = firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.Timestamp.fromDate(new Date());\nasync function handler(req, res) {\n    const storage = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getStorage)();\n    const fileRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.ref)(storage, \"gs://portfolio-othmane.appspot.com/black_logo.png\");\n    const fileUrl = await (0,firebase_storage__WEBPACK_IMPORTED_MODULE_2__.getDownloadURL)(fileRef);\n    const { firstname , lastname , email , message  } = req.body;\n    const data = {\n        firstname,\n        lastname,\n        email,\n        message,\n        sendedAt: timestamp\n    };\n    try {\n        await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_1__.addDoc)(dbInstance, data);\n        const transporter = nodemailer__WEBPACK_IMPORTED_MODULE_0___default().createTransport({\n            host: \"smtp.gmail.com\",\n            port: 465,\n            secure: true,\n            auth: {\n                user: \"othmane.developer@gmail.com\",\n                pass: process.env.MAIL_KEY\n            }\n        });\n        const mailData = {\n            from: \"othmane.developer@gmail.com\",\n            to: data.email,\n            subject: `Merci pour votre message ${data.firstname} ${data.lastname}`,\n            html: `\n        <body style=\"border-style: solid;\n                      border-width: thin;\n                      border-color: #dadce0;\n                      border-radius: 8px;\n                      padding: 10px 20px;\">\n          <div style=\"\n                      width: 100%;\n                      text-align: center;\n          \">\n            <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n              <tr>\n                <td align=\"center\">\n                  <a href=\"https://fr.linkedin.com/in/othmane-ait-salah-36736423a\" style=\"text-align: center\">\n                    <img src=${fileUrl} alt=\"logo\" style=\"width: 150px\"/>\n                  </a>\n                </td>\n              </tr>\n            </table>\n          </div>          \n          <h3 style=\"text-align: center\">Merci pour votre message, ${data.firstname} !</h3>\n          <p style=\"font-size: 16px;\">J'ai bien reçu votre message et je vous répondrai dans les plus brefs délais.</p>\n          <p style=\"text-decoration: underline; font-size: 16px;\">Voici un récapitulatif de votre message :</p>\n          <p style=\"font-size: 16px;\"><strong>${data.message}</strong></p>\n          <p style=\"text-align: center; font-size: 16px; font-weight: 500; border-top: thin solid #dadce0; padding-top: 15px\">Cordialement, Othmane</p>\n\n          <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n          <tr>\n            <td align=\"center\">\n              <a href=\"https://fr.linkedin.com/in/othmane-ait-salah-36736423a?original_referer=https%3A%2F%2Fwww.google.com%2F\">\n                <img src=\"https://www.nicepng.com/png/detail/461-4616944_linkedin-logo-png-linked-in-icon-svg.png\" alt=\"linkedin\" style=\"width: 26px; height: 26px;\" title=\"LinkedIn\">\n              </a>\n              <a href=\"tel:+33755384212\" style=\"margin-left: 15px\">\n                <img src=\"https://www.citypng.com/public/uploads/small/11641393938nn6j480o9ylr0bzap6d5rasvhwihvkx5p2hdbc8h05kcmiug7vsb531ovbniakvh2omjn5cby7kl0yrmf2epfrftbqziptjstwey.png\" alt=\"phone\" style=\"width: 30px; height: 30px;\" title=\"0755384212\">\n              </a>\n              <a href=\"https://github.com/othAs-dev\" style=\"margin-left: 15px\">\n                <img src=\"https://cdn-icons-png.flaticon.com/512/25/25231.png\" alt=\"phone\" style=\"width: 30px; height: 30px;\" title=\"GitHub\">\n              </a>\n            </td>\n          </tr>\n        </table>\n        </body>\n      `\n        };\n        transporter.sendMail(mailData, function(err, info) {\n            if (err) console.log(err);\n            else console.log(info);\n        });\n        res.status(200).json({\n            message: \"Form submitted successfully!\"\n        });\n    } catch (error) {\n        console.error(\"Error writing to database:\", error);\n        res.status(500).json({\n            error: \"Failed to submit form. Please try again.\"\n        });\n    }\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9zcmMvcGFnZXMvYXBpL3NlbmRDb250YWN0LmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFvQyxDQUFDLHFDQUFxQztBQUNQO0FBQ0E7QUFDYjtBQUN0RCxNQUFNUSxhQUFhTiw4REFBVUEsQ0FBQ0ssd0RBQUVBLEVBQUU7QUFDbEMsTUFBTUUsWUFBWU4sa0VBQWtCLENBQUMsSUFBSVE7QUFFMUIsZUFBZUMsUUFBUUMsR0FBRyxFQUFFQyxHQUFHLEVBQUU7SUFDOUMsTUFBTUMsVUFBVVgsNERBQVVBO0lBQzFCLE1BQU1ZLFVBQVVYLHFEQUFHQSxDQUNqQlUsU0FDQTtJQUVGLE1BQU1FLFVBQVUsTUFBTVgsZ0VBQWNBLENBQUNVO0lBQ3JDLE1BQU0sRUFBRUUsVUFBUyxFQUFFQyxTQUFRLEVBQUVDLE1BQUssRUFBRUMsUUFBTyxFQUFFLEdBQUdSLElBQUlTLElBQUk7SUFDeEQsTUFBTUMsT0FBTztRQUNYTDtRQUNBQztRQUNBQztRQUNBQztRQUNBRyxVQUFVZjtJQUNaO0lBRUEsSUFBSTtRQUNGLE1BQU1SLDBEQUFNQSxDQUFDTyxZQUFZZTtRQUV6QixNQUFNRSxjQUFjekIsaUVBQTBCLENBQUM7WUFDN0MyQixNQUFNO1lBQ05DLE1BQU07WUFDTkMsUUFBUSxJQUFJO1lBQ1pDLE1BQU07Z0JBQ0pDLE1BQU07Z0JBQ05DLE1BQU1DLFFBQVFDLEdBQUcsQ0FBQ0MsUUFBUTtZQUM1QjtRQUNGO1FBRUEsTUFBTUMsV0FBVztZQUNmQyxNQUFNO1lBQ05DLElBQUlmLEtBQUtILEtBQUs7WUFDZG1CLFNBQVMsQ0FBQyx5QkFBeUIsRUFBRWhCLEtBQUtMLFNBQVMsQ0FBQyxDQUFDLEVBQUVLLEtBQUtKLFFBQVEsQ0FBQyxDQUFDO1lBQ3RFcUIsTUFBTSxDQUFDOzs7Ozs7Ozs7Ozs7Ozs2QkFjZ0IsRUFBRXZCLFFBQVE7Ozs7OzttRUFNNEIsRUFBRU0sS0FBS0wsU0FBUyxDQUFDOzs7OENBR3RDLEVBQUVLLEtBQUtGLE9BQU8sQ0FBQzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztNQW1CdkQsQ0FBQztRQUNIO1FBRUFJLFlBQVlnQixRQUFRLENBQUNMLFVBQVUsU0FBVU0sR0FBRyxFQUFFQyxJQUFJLEVBQUU7WUFDbEQsSUFBSUQsS0FBS0UsUUFBUUMsR0FBRyxDQUFDSDtpQkFDaEJFLFFBQVFDLEdBQUcsQ0FBQ0Y7UUFDbkI7UUFFQTdCLElBQUlnQyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO1lBQUUxQixTQUFTO1FBQStCO0lBQ2pFLEVBQUUsT0FBTzJCLE9BQU87UUFDZEosUUFBUUksS0FBSyxDQUFDLDhCQUE4QkE7UUFFNUNsQyxJQUFJZ0MsTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQztZQUFFQyxPQUFPO1FBQTJDO0lBQzNFO0FBQ0YsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL215LXBvcnRmb2xpby8uL3NyYy9wYWdlcy9hcGkvc2VuZENvbnRhY3QuanM/ZGI3ZCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgbm9kZW1haWxlciBmcm9tIFwibm9kZW1haWxlclwiOyAvLyB1dGlsaXNlciBpbXBvcnQgYXUgbGlldSBkZSByZXF1aXJlXG5pbXBvcnQgeyBhZGREb2MsIGNvbGxlY3Rpb24sIFRpbWVzdGFtcCB9IGZyb20gXCJmaXJlYmFzZS9maXJlc3RvcmVcIjtcbmltcG9ydCB7IGdldFN0b3JhZ2UsIHJlZiwgZ2V0RG93bmxvYWRVUkwgfSBmcm9tIFwiZmlyZWJhc2Uvc3RvcmFnZVwiO1xuaW1wb3J0IHsgZGIgfSBmcm9tIFwiLi4vLi4vLi4vZmlyZWJhc2UvZmlyZWJhc2VDb25maWdcIjtcbmNvbnN0IGRiSW5zdGFuY2UgPSBjb2xsZWN0aW9uKGRiLCBcImNvbnRhY3RzXCIpO1xuY29uc3QgdGltZXN0YW1wID0gVGltZXN0YW1wLmZyb21EYXRlKG5ldyBEYXRlKCkpO1xuXG5leHBvcnQgZGVmYXVsdCBhc3luYyBmdW5jdGlvbiBoYW5kbGVyKHJlcSwgcmVzKSB7XG4gIGNvbnN0IHN0b3JhZ2UgPSBnZXRTdG9yYWdlKCk7XG4gIGNvbnN0IGZpbGVSZWYgPSByZWYoXG4gICAgc3RvcmFnZSxcbiAgICBcImdzOi8vcG9ydGZvbGlvLW90aG1hbmUuYXBwc3BvdC5jb20vYmxhY2tfbG9nby5wbmdcIlxuICApO1xuICBjb25zdCBmaWxlVXJsID0gYXdhaXQgZ2V0RG93bmxvYWRVUkwoZmlsZVJlZik7XG4gIGNvbnN0IHsgZmlyc3RuYW1lLCBsYXN0bmFtZSwgZW1haWwsIG1lc3NhZ2UgfSA9IHJlcS5ib2R5O1xuICBjb25zdCBkYXRhID0ge1xuICAgIGZpcnN0bmFtZSxcbiAgICBsYXN0bmFtZSxcbiAgICBlbWFpbCxcbiAgICBtZXNzYWdlLFxuICAgIHNlbmRlZEF0OiB0aW1lc3RhbXAsXG4gIH07XG5cbiAgdHJ5IHtcbiAgICBhd2FpdCBhZGREb2MoZGJJbnN0YW5jZSwgZGF0YSk7XG5cbiAgICBjb25zdCB0cmFuc3BvcnRlciA9IG5vZGVtYWlsZXIuY3JlYXRlVHJhbnNwb3J0KHtcbiAgICAgIGhvc3Q6IFwic210cC5nbWFpbC5jb21cIixcbiAgICAgIHBvcnQ6IDQ2NSxcbiAgICAgIHNlY3VyZTogdHJ1ZSxcbiAgICAgIGF1dGg6IHtcbiAgICAgICAgdXNlcjogXCJvdGhtYW5lLmRldmVsb3BlckBnbWFpbC5jb21cIixcbiAgICAgICAgcGFzczogcHJvY2Vzcy5lbnYuTUFJTF9LRVksXG4gICAgICB9LFxuICAgIH0pO1xuXG4gICAgY29uc3QgbWFpbERhdGEgPSB7XG4gICAgICBmcm9tOiBcIm90aG1hbmUuZGV2ZWxvcGVyQGdtYWlsLmNvbVwiLFxuICAgICAgdG86IGRhdGEuZW1haWwsXG4gICAgICBzdWJqZWN0OiBgTWVyY2kgcG91ciB2b3RyZSBtZXNzYWdlICR7ZGF0YS5maXJzdG5hbWV9ICR7ZGF0YS5sYXN0bmFtZX1gLFxuICAgICAgaHRtbDogYFxuICAgICAgICA8Ym9keSBzdHlsZT1cImJvcmRlci1zdHlsZTogc29saWQ7XG4gICAgICAgICAgICAgICAgICAgICAgYm9yZGVyLXdpZHRoOiB0aGluO1xuICAgICAgICAgICAgICAgICAgICAgIGJvcmRlci1jb2xvcjogI2RhZGNlMDtcbiAgICAgICAgICAgICAgICAgICAgICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgICAgICAgICAgICAgICAgICAgcGFkZGluZzogMTBweCAyMHB4O1wiPlxuICAgICAgICAgIDxkaXYgc3R5bGU9XCJcbiAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMTAwJTtcbiAgICAgICAgICAgICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgICAgICAgXCI+XG4gICAgICAgICAgICA8dGFibGUgd2lkdGg9XCIxMDAlXCIgYm9yZGVyPVwiMFwiIGNlbGxzcGFjaW5nPVwiMFwiIGNlbGxwYWRkaW5nPVwiMFwiPlxuICAgICAgICAgICAgICA8dHI+XG4gICAgICAgICAgICAgICAgPHRkIGFsaWduPVwiY2VudGVyXCI+XG4gICAgICAgICAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly9mci5saW5rZWRpbi5jb20vaW4vb3RobWFuZS1haXQtc2FsYWgtMzY3MzY0MjNhXCIgc3R5bGU9XCJ0ZXh0LWFsaWduOiBjZW50ZXJcIj5cbiAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9JHtmaWxlVXJsfSBhbHQ9XCJsb2dvXCIgc3R5bGU9XCJ3aWR0aDogMTUwcHhcIi8+XG4gICAgICAgICAgICAgICAgICA8L2E+XG4gICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICAgIDwvdGFibGU+XG4gICAgICAgICAgPC9kaXY+ICAgICAgICAgIFxuICAgICAgICAgIDxoMyBzdHlsZT1cInRleHQtYWxpZ246IGNlbnRlclwiPk1lcmNpIHBvdXIgdm90cmUgbWVzc2FnZSwgJHtkYXRhLmZpcnN0bmFtZX0gITwvaDM+XG4gICAgICAgICAgPHAgc3R5bGU9XCJmb250LXNpemU6IDE2cHg7XCI+SidhaSBiaWVuIHJlw6d1IHZvdHJlIG1lc3NhZ2UgZXQgamUgdm91cyByw6lwb25kcmFpIGRhbnMgbGVzIHBsdXMgYnJlZnMgZMOpbGFpcy48L3A+XG4gICAgICAgICAgPHAgc3R5bGU9XCJ0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsgZm9udC1zaXplOiAxNnB4O1wiPlZvaWNpIHVuIHLDqWNhcGl0dWxhdGlmIGRlIHZvdHJlIG1lc3NhZ2UgOjwvcD5cbiAgICAgICAgICA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMTZweDtcIj48c3Ryb25nPiR7ZGF0YS5tZXNzYWdlfTwvc3Ryb25nPjwvcD5cbiAgICAgICAgICA8cCBzdHlsZT1cInRleHQtYWxpZ246IGNlbnRlcjsgZm9udC1zaXplOiAxNnB4OyBmb250LXdlaWdodDogNTAwOyBib3JkZXItdG9wOiB0aGluIHNvbGlkICNkYWRjZTA7IHBhZGRpbmctdG9wOiAxNXB4XCI+Q29yZGlhbGVtZW50LCBPdGhtYW5lPC9wPlxuXG4gICAgICAgICAgPHRhYmxlIHdpZHRoPVwiMTAwJVwiIGJvcmRlcj1cIjBcIiBjZWxsc3BhY2luZz1cIjBcIiBjZWxscGFkZGluZz1cIjBcIj5cbiAgICAgICAgICA8dHI+XG4gICAgICAgICAgICA8dGQgYWxpZ249XCJjZW50ZXJcIj5cbiAgICAgICAgICAgICAgPGEgaHJlZj1cImh0dHBzOi8vZnIubGlua2VkaW4uY29tL2luL290aG1hbmUtYWl0LXNhbGFoLTM2NzM2NDIzYT9vcmlnaW5hbF9yZWZlcmVyPWh0dHBzJTNBJTJGJTJGd3d3Lmdvb2dsZS5jb20lMkZcIj5cbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cImh0dHBzOi8vd3d3Lm5pY2VwbmcuY29tL3BuZy9kZXRhaWwvNDYxLTQ2MTY5NDRfbGlua2VkaW4tbG9nby1wbmctbGlua2VkLWluLWljb24tc3ZnLnBuZ1wiIGFsdD1cImxpbmtlZGluXCIgc3R5bGU9XCJ3aWR0aDogMjZweDsgaGVpZ2h0OiAyNnB4O1wiIHRpdGxlPVwiTGlua2VkSW5cIj5cbiAgICAgICAgICAgICAgPC9hPlxuICAgICAgICAgICAgICA8YSBocmVmPVwidGVsOiszMzc1NTM4NDIxMlwiIHN0eWxlPVwibWFyZ2luLWxlZnQ6IDE1cHhcIj5cbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cImh0dHBzOi8vd3d3LmNpdHlwbmcuY29tL3B1YmxpYy91cGxvYWRzL3NtYWxsLzExNjQxMzkzOTM4bm42ajQ4MG85eWxyMGJ6YXA2ZDVyYXN2aHdpaHZreDVwMmhkYmM4aDA1a2NtaXVnN3ZzYjUzMW92Ym5pYWt2aDJvbWpuNWNieTdrbDB5cm1mMmVwZnJmdGJxemlwdGpzdHdleS5wbmdcIiBhbHQ9XCJwaG9uZVwiIHN0eWxlPVwid2lkdGg6IDMwcHg7IGhlaWdodDogMzBweDtcIiB0aXRsZT1cIjA3NTUzODQyMTJcIj5cbiAgICAgICAgICAgICAgPC9hPlxuICAgICAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly9naXRodWIuY29tL290aEFzLWRldlwiIHN0eWxlPVwibWFyZ2luLWxlZnQ6IDE1cHhcIj5cbiAgICAgICAgICAgICAgICA8aW1nIHNyYz1cImh0dHBzOi8vY2RuLWljb25zLXBuZy5mbGF0aWNvbi5jb20vNTEyLzI1LzI1MjMxLnBuZ1wiIGFsdD1cInBob25lXCIgc3R5bGU9XCJ3aWR0aDogMzBweDsgaGVpZ2h0OiAzMHB4O1wiIHRpdGxlPVwiR2l0SHViXCI+XG4gICAgICAgICAgICAgIDwvYT5cbiAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgPC90cj5cbiAgICAgICAgPC90YWJsZT5cbiAgICAgICAgPC9ib2R5PlxuICAgICAgYCxcbiAgICB9O1xuXG4gICAgdHJhbnNwb3J0ZXIuc2VuZE1haWwobWFpbERhdGEsIGZ1bmN0aW9uIChlcnIsIGluZm8pIHtcbiAgICAgIGlmIChlcnIpIGNvbnNvbGUubG9nKGVycik7XG4gICAgICBlbHNlIGNvbnNvbGUubG9nKGluZm8pO1xuICAgIH0pO1xuXG4gICAgcmVzLnN0YXR1cygyMDApLmpzb24oeyBtZXNzYWdlOiBcIkZvcm0gc3VibWl0dGVkIHN1Y2Nlc3NmdWxseSFcIiB9KTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICBjb25zb2xlLmVycm9yKFwiRXJyb3Igd3JpdGluZyB0byBkYXRhYmFzZTpcIiwgZXJyb3IpO1xuXG4gICAgcmVzLnN0YXR1cyg1MDApLmpzb24oeyBlcnJvcjogXCJGYWlsZWQgdG8gc3VibWl0IGZvcm0uIFBsZWFzZSB0cnkgYWdhaW4uXCIgfSk7XG4gIH1cbn1cbiJdLCJuYW1lcyI6WyJub2RlbWFpbGVyIiwiYWRkRG9jIiwiY29sbGVjdGlvbiIsIlRpbWVzdGFtcCIsImdldFN0b3JhZ2UiLCJyZWYiLCJnZXREb3dubG9hZFVSTCIsImRiIiwiZGJJbnN0YW5jZSIsInRpbWVzdGFtcCIsImZyb21EYXRlIiwiRGF0ZSIsImhhbmRsZXIiLCJyZXEiLCJyZXMiLCJzdG9yYWdlIiwiZmlsZVJlZiIsImZpbGVVcmwiLCJmaXJzdG5hbWUiLCJsYXN0bmFtZSIsImVtYWlsIiwibWVzc2FnZSIsImJvZHkiLCJkYXRhIiwic2VuZGVkQXQiLCJ0cmFuc3BvcnRlciIsImNyZWF0ZVRyYW5zcG9ydCIsImhvc3QiLCJwb3J0Iiwic2VjdXJlIiwiYXV0aCIsInVzZXIiLCJwYXNzIiwicHJvY2VzcyIsImVudiIsIk1BSUxfS0VZIiwibWFpbERhdGEiLCJmcm9tIiwidG8iLCJzdWJqZWN0IiwiaHRtbCIsInNlbmRNYWlsIiwiZXJyIiwiaW5mbyIsImNvbnNvbGUiLCJsb2ciLCJzdGF0dXMiLCJqc29uIiwiZXJyb3IiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./src/pages/api/sendContact.js\n");
 
 /***/ })
 
@@ -167,7 +80,7 @@ __webpack_async_result__();
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(3249));
+var __webpack_exports__ = (__webpack_exec__("(api)/./src/pages/api/sendContact.js"));
 module.exports = __webpack_exports__;
 
 })();

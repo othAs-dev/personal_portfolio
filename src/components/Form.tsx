@@ -47,7 +47,7 @@ export default function Form() {
     <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
       <div className="w-8/12 md:w-10/12">
         <h2
-          className={`text-2xl text-white pb-2 lg:text-center ${preahvihear.className}`}
+          className={`text-2xl text-white pb-2 text-center ${preahvihear.className}`}
         >
           Vous souhaitez prendre contacte c'est par ici !
         </h2>
@@ -135,7 +135,7 @@ export default function Form() {
                 Soumettre
               </button>
             </div>
-            <div className={`md:mt-5 ${preahvihear.className}`}>
+            <div className={`mt-5 ${preahvihear.className}`}>
               {successMessage !== "" && (
                 <p className="text-white">{successMessage}</p>
               )}

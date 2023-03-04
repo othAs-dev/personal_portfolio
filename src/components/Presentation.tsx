@@ -17,6 +17,7 @@ interface Props {
   job: string;
   description: string[];
   dataCards: [string, string, string, string, string][];
+  resumeFile: string;
 }
 function MachineAEcrire({ text }: { text: string }) {
   const [textePartiel, setTextePartiel] = useState("");
@@ -46,6 +47,7 @@ export const Presentation: React.FC<Props> = ({
   job,
   description,
   dataCards,
+  resumeFile,
 }) => {
   return (
     <div className={`${preahvihear.className}`}>
@@ -120,6 +122,16 @@ export const Presentation: React.FC<Props> = ({
                 </div>
               ))}
             </div>
+            <div className="flex justify-end md:justify-center w-full">
+              <a
+                className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:cursor-pointer"
+                href={resumeFile}
+                target="_blank"
+                download
+              >
+                Télécharger mon CV
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -131,7 +143,7 @@ export const Presentation: React.FC<Props> = ({
             <MachineAEcrire text={job} />
           </h1>
           <p className="flex flex-row gap-2 md:flex-col md:gap-1 md:items-center">
-            Actuellement, je suis développeur web chez{" "}
+            Actuellement, je suis en concepteur développeur en alternance chez{" "}
             <span className="text-ouivalo flex flex-row gap-1">
               {" "}
               <img
@@ -157,7 +169,7 @@ export const Presentation: React.FC<Props> = ({
         }}
       >
         <div className="w-8/12 md:w-10/12">
-          <h2 className="text-2xl text-white pb-2 md: text-center">
+          <h2 className="text-2xl text-white mb-5 md: text-center">
             Experience professionnelles & Formations
           </h2>
         </div>

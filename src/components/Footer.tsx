@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <div className="bg-purple">
       <div className="flex w-full justify-">
-        <div className="w-6/12 lg:w-4/12 block md:flex justify-center md:hidden">
+        <div className="w-6/12 lg:w-4/12 block justify-center md:hidden">
           <Image src={logo} alt="logo" width={100} />
         </div>
         <div
@@ -26,6 +26,9 @@ export function Footer() {
             </a>
             <a href="mailto:othmane.developer@gmail.com">
               <i className="fa fa-envelope text-white cursor-pointer hover:text-2xl"></i>
+            </a>
+            <a href="tel:+33755384212">
+              <i className="fa fa-phone text-white cursor-pointer hover:text-2xl"></i>
             </a>
           </div>
         </div>

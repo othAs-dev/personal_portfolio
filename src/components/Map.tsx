@@ -30,7 +30,7 @@ export function Map() {
       <div className="w-8/12 md:w-10/12">
         <div>
           <h2 className={`text-white text-2xl pb-2 ${preahvihear.className}`}>
-            Ou me trouver ?
+            Où me trouver ?
           </h2>
         </div>
         <div className="rounded-xl">

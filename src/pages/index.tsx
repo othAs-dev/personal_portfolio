@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Navbar } from "@/components/Navbar";
 import { Presentation } from "@/components/Presentation";
-import { collection, getDocs, addDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { db } from "../../firebase/firebaseConfig";
 import { GetServerSideProps } from "next";
 import Form from "@/components/Form";
@@ -20,10 +21,14 @@ interface CardData extends Array<[string, string, string, string, string]> {}
 export default function Home({
   formattedDataPresentation,
   formattedDataCards,
+  fileUrl,
 }: {
   formattedDataPresentation: DataPresentation;
   formattedDataCards: CardData;
+  fileUrl: string;
 }) {
+  console.log(fileUrl);
+
   return (
     <>
       <Head>
@@ -38,6 +43,9 @@ export default function Home({
       </Head>
       <Navbar />
       <main>
+        <a href={fileUrl} target="_blank" download>
+          Télécharger le fichier
+        </a>
         <Presentation
           presentation={formattedDataPresentation.objective}
           name={formattedDataPresentation.name}
@@ -45,6 +53,7 @@ export default function Home({
           job={formattedDataPresentation.job}
           description={formattedDataPresentation.description}
           dataCards={formattedDataCards}
+          resumeFile={fileUrl}
         />
         <Form />
         <div>
@@ -56,6 +65,7 @@ export default function Home({
   );
 }
 export const getStaticProps: GetServerSideProps = async () => {
+  const storage = getStorage();
   const querySnapshotPresentation = await getDocs(
     collection(db, "presentation")
   );
@@ -66,5 +76,12 @@ export const getStaticProps: GetServerSideProps = async () => {
   const dataCards = querySnapshotCards.docs.map((doc) => doc.data());
   const formattedDataPresentation = dataPresentation[0];
   const formattedDataCards = dataCards[0];
-  return { props: { formattedDataPresentation, formattedDataCards } };
+
+  const fileRef = ref(
+    storage,
+    "gs://portfolio-othmane.appspot.com/cv_othmane_alternance.pdf"
+  );
+  const fileUrl = await getDownloadURL(fileRef);
+
+  return { props: { formattedDataPresentation, formattedDataCards, fileUrl } };
 };
