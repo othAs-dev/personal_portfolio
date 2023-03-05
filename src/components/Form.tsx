@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import ReCAPTCHA from "react-google-recaptcha";
 interface Idata {
@@ -14,6 +14,7 @@ export default function Form() {
   const [message, setMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+  const recaptchaRef = useRef(null);
   const data: Idata = {
     firstname: firstname,
     lastname: lastname,
@@ -26,9 +27,13 @@ export default function Form() {
 
   const submitData = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    const captchaToken = await recaptchaRef.current.executeAsync();
+    recaptchaRef.current.reset();
+    console.log(captchaToken);
+
     if (isVerified) {
       try {
-        const res = await axios.post("/api/sendContact", data);
+        const res = await axios.post("/api/sendContact", data, captchaToken);
         console.log(res.data);
         setSuccessMessage(
           "Votre message à bien été reçu, vous recevrez un mail de confirmation dans les plus brefs délais."
@@ -130,22 +135,31 @@ export default function Form() {
             </div>
           </div>
           <div className="md:flex md:flex-col">
-            <div className="md:w-1/3">
-              {isVerified ? (
+            <div
+              className={
+                isVerified ? `md:w-1/3` : " flex justify-center items-center"
+              }
+            >
+              {isVerified && (
                 <button
                   className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                   type="submit"
                   value="send"
-                  onClick={submitData}
                 >
                   Soumettre
                 </button>
-              ) : (
-                <ReCAPTCHA
-                  sitekey="6LdUPNQkAAAAAI_pzNEQJE9CUuuTl4pRcc5uv5gh"
-                  onChange={handleVerify}
-                />
               )}
+              <div
+                className={
+                  isVerified ? `hidden` : " flex justify-center items-center"
+                }
+              >
+                <ReCAPTCHA
+                  sitekey="6LdeytQkAAAAALbv2U-wiULTIvrk5IWUKHjpba_M"
+                  onChange={handleVerify}
+                  ref={recaptchaRef}
+                />
+              </div>
             </div>
             <div className={`mt-5`}>
               {successMessage !== "" && (

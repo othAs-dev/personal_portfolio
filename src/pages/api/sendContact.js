@@ -7,16 +7,18 @@ const dbInstance = collection(db, "contacts");
 const timestamp = Timestamp.fromDate(new Date());
 const fetch = require("node-fetch");
 const SECRET_KEY = process.env.CAPTCHA_KEY;
-
 async function verifyRecaptcha(response) {
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${SECRET_KEY}&response=${response}`;
   const res = await fetch(url);
   const data = await res.json();
+  console.log(response);
   return data.success;
 }
 
 export default async function handler(req, res) {
   const { recaptchaResponse } = req.body;
+  console.log(req.body);
+  console.log(recaptchaResponse);
   const storage = getStorage();
   const fileRef = ref(
     storage,
@@ -34,7 +36,6 @@ export default async function handler(req, res) {
       message,
       sendedAt: timestamp,
     };
-
     try {
       await addDoc(dbInstance, data);
 
