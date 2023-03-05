@@ -19,11 +19,7 @@ h3 {
   font-family: ClashDisplay;
   font-weight: bold;
 }
-@media (max-width: 768px) {
-  .grecaptcha-badge {
-    visibility: hidden;
-  }
-}
-.rc-anchor-invisible-text {
-  color: purple !important;
+
+.grecaptcha-badge {
+  visibility: hidden;
 }
