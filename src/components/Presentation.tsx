@@ -167,7 +167,7 @@ export const Presentation: React.FC<Props> = ({
       >
         <div className="w-8/12 md:w-10/12">
           <h2 className="text-3xl text-white mb-5 md: text-center">
-            Experience professionnelles & Formations
+            Expérience professionnelles & Formations
           </h2>
         </div>
         <div className="flex flex-row flex-wrap justify-center gap-5 max-w-7xl">
