@@ -77,7 +77,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const fileRef = ref(
     storage,
-    "gs://portfolio-othmane.appspot.com/cv_othmane_alternance.pdf"
+    "gs://portfolio-othmane.appspot.com/cv_alternance_othmane.pdf"
   );
   const fileUrl = await getDownloadURL(fileRef);
 
