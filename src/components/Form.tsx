@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
 interface Idata {
   firstname: string;
   lastname: string;
@@ -12,29 +13,36 @@ export default function Form() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
   const data: Idata = {
     firstname: firstname,
     lastname: lastname,
     email: email,
     message: message,
   };
+  const handleVerify = () => {
+    setIsVerified(true);
+  };
 
   const submitData = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
-    try {
-      const res = await axios.post("/api/sendContact", data);
-      console.log(res.data);
-      setSuccessMessage(
-        "Votre message à bien été reçu, vous recevrez un mail de confirmation dans les plus brefs délais."
-      );
-    } catch (error) {
-      console.error(error);
+    if (isVerified) {
+      try {
+        const res = await axios.post("/api/sendContact", data);
+        console.log(res.data);
+        setSuccessMessage(
+          "Votre message à bien été reçu, vous recevrez un mail de confirmation dans les plus brefs délais."
+        );
+      } catch (error) {
+        console.error(error);
+      }
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setMessage("");
+    } else {
+      alert("Please verify that you are not a robot.");
     }
-    setFirstname("");
-    setLastname("");
-    setEmail("");
-    setMessage("");
   };
 
   return (
@@ -123,13 +131,21 @@ export default function Form() {
           </div>
           <div className="md:flex md:flex-col">
             <div className="md:w-1/3">
-              <button
-                className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                type="submit"
-                value="send"
-              >
-                Soumettre
-              </button>
+              {isVerified ? (
+                <button
+                  className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                  type="submit"
+                  value="send"
+                  onClick={submitData}
+                >
+                  Soumettre
+                </button>
+              ) : (
+                <ReCAPTCHA
+                  sitekey="6LdUPNQkAAAAAI_pzNEQJE9CUuuTl4pRcc5uv5gh"
+                  onChange={handleVerify}
+                />
+              )}
             </div>
             <div className={`mt-5`}>
               {successMessage !== "" && (
