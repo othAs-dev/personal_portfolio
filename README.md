@@ -5,6 +5,6 @@ Ce portfolio a été développé en utilisant ![Next JS](https://img.shields.io/
 J'ai également utilisé Node Mailer pour la fonctionnalité d'envoi de courrier électronique de ce portfolio. La carte interactive que vous pouvez voir sur la page d'accueil a été réalisée grâce à l'utilisation de Mapbox, une plateforme de cartographie en ligne très puissante.
 
 Ce portfolio a été conçu pour présenter mes compétences en développement web. Il contient des informations sur mes missions en entreprise et mes compétences professionnelles. N'hésitez pas à me contacter si vous avez des questions ou si vous souhaitez travailler avec moi.
-![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=therealsujitk-vercel-badge)
 
 Merci d'avoir pris le temps de visiter mon portfolio, j'espère que vous apprécierez votre expérience sur ce site !
+![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=therealsujitk-vercel-badge)
