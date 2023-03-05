@@ -12,7 +12,11 @@ export default function Cards({ card }: CardProps) {
     >
       <div className="text-white flex flex-row gap-5 lg:flex-col">
         <div className="flex items-center lg:justify-center">
-          <img src={`${card[4]}`} alt="" width={75} height={75} />
+          <img
+            src={`${card[4]}`}
+            alt=""
+            className="w-20 rounded-3xl lg:w-16 md:w-14"
+          />
         </div>
         <div className="flex flex-col justify-center w-full gap-2">
           <h3 className="text-lg font-bold">{card[0]}</h3>

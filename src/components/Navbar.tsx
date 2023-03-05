@@ -4,11 +4,11 @@ export function Navbar() {
   return (
     <header className="bg-purple" id="top">
       <nav className="flex w-full justify-center">
-        <div className="w-7/12 lg:w-4/12 block md:flex justify-center ">
+        <div className="w-6/12 lg:w-4/12 block md:flex justify-center ">
           <Image src={logo} alt="logo" width={100} />
         </div>
         <div
-          className={`flex w-4/12 max-w-xl justify-between items-center text-white  lg:w-6/12 md:hidden`}
+          className={`flex w-5/12 max-w-xl justify-between items-center text-white  lg:w-6/12 md:hidden`}
         >
           <a href="#" className="bg-low-purple p-3 rounded-xl">
             Home
@@ -17,7 +17,7 @@ export function Navbar() {
             href="#presentation"
             className="hover:bg-low-purple p-3 rounded-xl"
           >
-            Projets
+            Expériences
           </a>
           <a href="#form" className="hover:bg-low-purple p-3 rounded-xl">
             Contactez-moi

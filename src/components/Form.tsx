@@ -44,7 +44,10 @@ export default function Form() {
     setCanSubmit(parseInt(e.target.value) === 4);
   };
   return (
-    <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
+    <div
+      className="flex justify-center items-center flex-col mt-10 mb-10 h-full"
+      id="form"
+    >
       <div className="w-8/12 md:w-10/12">
         <h2 className={`text-3xl text-white pb-2 text-center `}>
           Vous souhaitez prendre contacte c'est par ici !
