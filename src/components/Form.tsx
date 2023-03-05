@@ -12,6 +12,9 @@ export default function Form() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [canSubmit, setCanSubmit] = useState(false);
+
   const data: Idata = {
     firstname: firstname,
     lastname: lastname,
@@ -36,7 +39,10 @@ export default function Form() {
     setEmail("");
     setMessage("");
   };
-
+  const handleAnswerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAnswer(e.target.value);
+    setCanSubmit(parseInt(e.target.value) === 4);
+  };
   return (
     <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
       <div className="w-8/12 md:w-10/12">
@@ -122,14 +128,38 @@ export default function Form() {
             </div>
           </div>
           <div className="md:flex md:flex-col">
-            <div className="md:w-1/3">
-              <button
-                className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                type="submit"
-                value="send"
-              >
-                Soumettre
-              </button>
+            <div className={canSubmit ? `md:w-1/3` : `w-full`}>
+              {!canSubmit && (
+                <div className="flex flex-col">
+                  <label
+                    className={`block uppercase tracking-wide text-white text-xs font-bold mb-2`}
+                    htmlFor="test"
+                  >
+                    Quel est le résultat de 2 + 2 ?
+                  </label>
+                  <input
+                    type="number"
+                    value={answer}
+                    onChange={handleAnswerChange}
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    style={{ color: "black" }}
+                    name="test"
+                  />
+                </div>
+              )}
+              {canSubmit && (
+                <div className="md:flex md:flex-col">
+                  <div className="md:w-1/3">
+                    <button
+                      className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                      type="submit"
+                      value="send"
+                    >
+                      Soumettre
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
             <div className={`mt-5`}>
               {successMessage !== "" && (
