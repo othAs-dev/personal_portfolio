@@ -90,6 +90,18 @@ export default async function handler(req, res) {
       if (err) console.log(err);
       else console.log(info);
     });
+    await new Promise((resolve, reject) => {
+      // send mail
+      transporter.sendMail(mailData, (err, info) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          console.log(info);
+          resolve(info);
+        }
+      });
+    });
 
     res.status(200).json({ message: "Form submitted successfully!" });
   } catch (error) {
@@ -97,5 +109,4 @@ export default async function handler(req, res) {
 
     res.status(500).json({ error: "Failed to submit form. Please try again." });
   }
-  return transporter.sendMail(mailData);
 }
