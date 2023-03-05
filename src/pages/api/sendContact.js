@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,
       tls: {
-        ciphers: "SSLv3",
+        ciphers: "TLS_AES_256_GCM_SHA384",
       },
       secure: true,
       auth: {
