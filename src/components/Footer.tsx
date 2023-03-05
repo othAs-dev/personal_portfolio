@@ -11,23 +11,30 @@ export function Footer() {
     <div className="bg-purple">
       <div className="flex w-full justify-">
         <div className="w-6/12 lg:w-4/12 block justify-center md:hidden">
-          <Image src={logo} alt="logo" width={100} />
+          <a href="#top">
+            <Image src={logo} alt="logo" width={100} />
+          </a>
         </div>
         <div
           className={`flex justify-end items-center text-white ${inter.className} mr-6 w-10/12 max-w-xl lg:w-6/12 md:mt-8 md:mb-8 md:w-full md:justify-center`}
         >
           <div className="flex items-center text-xl gap-5 lg:justify-around lg:gap-3">
-            <a href="https://www.linkedin.com/in/othmane-ait-salah-36736423a/">
-              {" "}
+            <a
+              href="https://www.linkedin.com/in/othmane-ait-salah-36736423a/"
+              title="LinkedIn"
+            >
               <i className="fa-brands fa-linkedin text-white cursor-pointer hover:text-2xl"></i>
             </a>
-            <a href="https://github.com/othAs-dev">
+            <a href="https://github.com/othAs-dev" title="GitHub">
               <i className="fa-brands fa-github text-white cursor-pointer hover:text-2xl"></i>
             </a>
-            <a href="mailto:othmane.developer@gmail.com">
+            <a
+              href="mailto:othmane.developer@gmail.com"
+              title="othmane@developer@gmail.com"
+            >
               <i className="fa fa-envelope text-white cursor-pointer hover:text-2xl"></i>
             </a>
-            <a href="tel:+33755384212">
+            <a href="tel:+33755384212" title="+33 7 55 38 42 12">
               <i className="fa fa-phone text-white cursor-pointer hover:text-2xl"></i>
             </a>
           </div>

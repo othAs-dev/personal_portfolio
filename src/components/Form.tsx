@@ -61,6 +61,7 @@ export default function Form() {
                 type="text"
                 name="firstname"
                 required
+                aria-label="firstname"
               />
             </div>
           </div>
@@ -79,6 +80,7 @@ export default function Form() {
                 type="text"
                 name="lastname"
                 required
+                aria-label="lastname"
               />
             </div>
           </div>
@@ -97,6 +99,7 @@ export default function Form() {
                 type="email"
                 name="email"
                 required
+                aria-label="E-mail"
               />
             </div>
           </div>
@@ -114,6 +117,7 @@ export default function Form() {
                 onChange={(e) => setMessage(e.target.value)}
                 name="message"
                 required
+                aria-label="message"
               ></textarea>
             </div>
           </div>

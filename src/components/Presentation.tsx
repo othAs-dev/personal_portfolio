@@ -132,7 +132,10 @@ export const Presentation: React.FC<Props> = ({
       <div
         className={`flex flex-col justify-center items-center w-full text-white pt-20 `}
       >
-        <div className="w-8/12 pb-5 md:w-10/12 md:text-center ">
+        <div
+          className="w-8/12 pb-5 md:w-10/12 md:text-center"
+          id="presentation"
+        >
           <h1 className="text-3xl pb-1 md:pb-3">
             <MachineAEcrire text={job} />
           </h1>

@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     });
 
     const mailData = {
-      from: "Othmane Ait Salah ",
+      from: "othmane.developer@gmail",
       to: data.email,
       subject: `Merci pour votre message ${data.firstname} ${data.lastname} 🚀`,
       html: `
