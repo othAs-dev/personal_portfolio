@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import ReCAPTCHA from "react-google-recaptcha";
 interface Idata {
   firstname: string;
   lastname: string;
@@ -13,43 +12,37 @@ export default function Form() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [isVerified, setIsVerified] = useState(false);
-  const recaptchaRef = useRef(null);
+
+  const [answer, setAnswer] = useState("");
+  const [canSubmit, setCanSubmit] = useState(false);
+
   const data: Idata = {
     firstname: firstname,
     lastname: lastname,
     email: email,
     message: message,
   };
-  const handleVerify = () => {
-    setIsVerified(true);
-  };
 
   const submitData = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const captchaToken = await recaptchaRef.current.executeAsync();
-    recaptchaRef.current.reset();
-    console.log(captchaToken);
-
-    if (isVerified) {
-      try {
-        const res = await axios.post("/api/sendContact", data, captchaToken);
-        console.log(res.data);
-        setSuccessMessage(
-          "Votre message à bien été reçu, vous recevrez un mail de confirmation dans les plus brefs délais."
-        );
-      } catch (error) {
-        console.error(error);
-      }
-      setFirstname("");
-      setLastname("");
-      setEmail("");
-      setMessage("");
-    } else {
-      alert("Please verify that you are not a robot.");
+    try {
+      const res = await axios.post("/api/sendContact", data);
+      console.log(res.data);
+      setSuccessMessage(
+        "Votre message à bien été reçu, vous recevrez un mail de confirmation dans les plus brefs délais."
+      );
+    } catch (error) {
+      console.error(error);
     }
+    setFirstname("");
+    setLastname("");
+    setEmail("");
+    setMessage("");
   };
-
+  const handleAnswerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAnswer(e.target.value);
+    setCanSubmit(parseInt(e.target.value) === 4);
+  };
   return (
     <div className="flex justify-center items-center flex-col mt-10 mb-10 h-full">
       <div className="w-8/12 md:w-10/12">
@@ -135,31 +128,38 @@ export default function Form() {
             </div>
           </div>
           <div className="md:flex md:flex-col">
-            <div
-              className={
-                isVerified ? `md:w-1/3` : " flex justify-center items-center"
-              }
-            >
-              {isVerified && (
-                <button
-                  className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                  type="submit"
-                  value="send"
-                >
-                  Soumettre
-                </button>
+            <div className={canSubmit ? `md:w-1/3` : `w-full`}>
+              {!canSubmit && (
+                <div className="flex flex-col">
+                  <label
+                    className={`block uppercase tracking-wide text-white text-xs font-bold mb-2`}
+                    htmlFor="test"
+                  >
+                    Quel est le résultat de 2 + 2 ?
+                  </label>
+                  <input
+                    type="number"
+                    value={answer}
+                    onChange={handleAnswerChange}
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    style={{ color: "black" }}
+                    name="test"
+                  />
+                </div>
               )}
-              <div
-                className={
-                  isVerified ? `hidden` : " flex justify-center items-center"
-                }
-              >
-                <ReCAPTCHA
-                  sitekey="6LdeytQkAAAAALbv2U-wiULTIvrk5IWUKHjpba_M"
-                  onChange={handleVerify}
-                  ref={recaptchaRef}
-                />
-              </div>
+              {canSubmit && (
+                <div className="md:flex md:flex-col">
+                  <div className="md:w-1/3">
+                    <button
+                      className="shadow bg-low-purple hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                      type="submit"
+                      value="send"
+                    >
+                      Soumettre
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
             <div className={`mt-5`}>
               {successMessage !== "" && (
