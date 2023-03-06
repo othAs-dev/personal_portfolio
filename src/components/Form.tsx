@@ -50,7 +50,7 @@ export default function Form() {
     >
       <div className="w-8/12 md:w-10/12">
         <h2 className={`text-3xl text-white pb-2 text-center `}>
-          Vous souhaitez prendre contacte c'est par ici !
+          Vous souhaitez prendre contact c'est par ici !
         </h2>
       </div>
       <div className="flex justify-center items-center w-5/12 md:w-10/12">
