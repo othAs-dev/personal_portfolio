@@ -36,7 +36,11 @@ export default function Home({
           content="Hello, bienvenue sur mon portfolio !"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="https://othmaneportfolio.fr/logo.ico?v=2" />
+        <link
+          rel="icon"
+          sizes="32x32"
+          href="https://othmaneportfolio.fr/logo.ico?v=2"
+        />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"

@@ -167,7 +167,7 @@ export const Presentation: React.FC<Props> = ({
       >
         <div className="w-8/12 md:w-10/12">
           <h2 className="text-3xl text-white mb-5 md: text-center">
-            Expérience professionnelles & Formations
+            Expériences professionnelles & Formations
           </h2>
         </div>
         <div className="flex flex-row flex-wrap justify-center gap-5 max-w-7xl">
@@ -179,10 +179,10 @@ export const Presentation: React.FC<Props> = ({
       <div className="flex justify-center items-center flex-col mt-20 w-full gap-10">
         <div className="w-8/12 md:10/12">
           <h2 className="text-white text-3xl text-center md:text-md">
-            Technos sur lesquels j'ai travaillé dans des projets en{" "}
+            Technos sur lesquelles j'ai travaillé dans des projets en{" "}
             <span className="text-text-purple">entreprise </span>
             ou bien dans des projets{" "}
-            <span className="text-text-purple">scolaire</span>.
+            <span className="text-text-purple">scolaires</span>.
           </h2>
         </div>
         <div className="w-8/12 md:w-10/12 flex justify-center items-center">
