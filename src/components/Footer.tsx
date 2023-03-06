@@ -9,14 +9,14 @@ const inter = Roboto({
 export function Footer() {
   return (
     <div className="bg-purple">
-      <div className="flex w-full justify-">
+      <div className="flex w-full justify-center">
         <div className="w-6/12 lg:w-4/12 block justify-center md:hidden">
           <a href="#top">
             <Image src={logo} alt="logo" width={100} />
           </a>
         </div>
         <div
-          className={`flex justify-end items-center text-white ${inter.className} mr-6 w-10/12 max-w-xl lg:w-6/12 md:mt-8 md:mb-8 md:w-full md:justify-center`}
+          className={`flex justify-end items-center text-white ${inter.className} mr-6 w-10/12 max-w-xl lg:w-8/12 md:mr-0 md:mt-8 md:mb-8 md:w-full md:justify-center`}
         >
           <div className="flex items-center text-xl gap-5 lg:justify-around lg:gap-3">
             <a
